@@ -1,0 +1,10 @@
+test/
+tsconfig.json
+tsconfig.build.json
+node_modules/
+src/
+demo/
+.travis.yml
+jest.config.js
+coverage/
+.releaserc.json

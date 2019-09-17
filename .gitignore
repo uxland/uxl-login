@@ -1,0 +1,12 @@
+es/
+lib/
+node_modules/
+.idea/
+src/**/*.js
+src/**/*.js.map
+test/**/*.js
+test/**/*.js.map
+coverage/
+.vscode/
+.DS_Store
+monitor/
