@@ -1,8 +1,28 @@
+
 import { html } from "lit-element";
-import { UxlLogin } from "./uxl-login";
 
-export const template = (props: UxlLogin) => html`
+export const template = (props) => html`
+
+<div class="login">
+
+    <div class="inputs">
+
+        <div class="inputs__username">
+        <input
+            class="username"
+            autofocus
+            autocapitalize="none"
+            placeholder="" />
+        </div>
+
+        <div class="inputs__password">
+        <input
+            class="password"
+            type="password"
+            placeholder="" />
+        </div>
+        
+    </div>
+
+</div>
 `;
-
-
-//template para qué sirve?
