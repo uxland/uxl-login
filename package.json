@@ -10,7 +10,6 @@
     "polymer",
     "web components"
   ],
- 
   "@std/esm": {
     "esm": "js",
     "cjs": true
