@@ -24,13 +24,16 @@ export const template = (props) => html`
         </div>
     </div>
          
-            <button
-            class="btn-show"
-            type="button"
-            >Ver</button>
-      
+    <button
+    class="btn-show"
+    type="button"
+    >Ver</button>
+    
      
-        <button>Entrar</button>
+    <button
+    class="btn-login"
+    type="submit"
+    >Entrar</button>
         
     </div>
 

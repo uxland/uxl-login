@@ -3,6 +3,15 @@ import { css, customElement, html, LitElement, property, query, unsafeCSS } from
 import styles from "./styles.scss";
 import { template } from "./template";
 
+// import {
+//   locale,
+//   login,
+//   store,
+//   userErrorDescriptionSelector,
+//   userErrorSelector,
+//   userIsFetchingSelector
+// } from "@uxland/uxl-prism"; -----> Como se importa un módulo?????
+
 @customElement("uxl-login")
 
 export class UxlLogin extends LitElement {
@@ -13,17 +22,7 @@ export class UxlLogin extends LitElement {
     `;
   }
 
-  //PRUEBA DE MÉTODO PARA MOSTRAR CONTRASEÑA
- public mostrarContrasena(){
- 
-    if(this.passwordInput.type == "password"){
-        this.passwordInput.type = "text";
-    }else{
-        this.passwordInput.type = "password";
-    }
-}
-
-
+  
   @property()
   public canDoLogin: boolean;
 
@@ -33,10 +32,22 @@ export class UxlLogin extends LitElement {
   @query(".password")
   public passwordInput: any;
 
+  
+
   public render() {
     return html`
       ${template(this)}
     `;
   }
 
+
+//  @listen("click", ".btn-show")
+  public mostrarContrasena() {
+
+    if(this.passwordInput.type == "password"){
+        this.passwordInput.type = "text";
+    }else{
+        this.passwordInput.type = "password";
+    }
+  }
 }
