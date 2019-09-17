@@ -1,0 +1,20 @@
+
+
+> Permite introducir un usuario y una contraseña
+> Personalizar el tipo de usuario para que sea un correo (elegir entre usuario o email??)
+> Activar el boton de enviar cuando el usuario ha introducido el usuario y password 
+> Mediante el boton de acceso se lanza un evento con la información introducida por el usuario
+> Permitir mostrar el contenido del password
+
+> Opcionalmente mostrar el username con un mensaje de bienvenida
+    Se tiene que poder localizar el mensaje
+    Se tiene que poder personalizar el mensaje
+    Se tiene que esconder el input de username
+
+> Opcionalmente mostrar un boton/enlace para la recuperación del password
+> Opcionalmente mostrar un boton/enlace de registro de nuevo usuario
+> Personalizar estilos del componente (botones, inputs, etc)
+> Mostrar un mensaje de error una vez enviado el evento de submit
+> Opcionalmente permitir que los inputs contengan iconos (personalizar ??? ) 
+> Opcionalmente mostrar la imagen/icono del usuario
+> Personalizar y localizar el texto del boton de submit

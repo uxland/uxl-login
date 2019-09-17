@@ -13,6 +13,16 @@ export class UxlLogin extends LitElement {
     `;
   }
 
+  //PRUEBA DE MÉTODO PARA MOSTRAR CONTRASEÑA
+ public mostrarContrasena(){
+ 
+    if(this.passwordInput.type == "password"){
+        this.passwordInput.type = "text";
+    }else{
+        this.passwordInput.type = "password";
+    }
+}
+
 
   @property()
   public canDoLogin: boolean;
