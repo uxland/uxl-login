@@ -1,7 +1,7 @@
 {
   "name": "@uxland/uxl-login",
   "version": "0.0.1-development",
-  "description": "UXLand - Switch component",
+  "description": "UXLand - Login component",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
