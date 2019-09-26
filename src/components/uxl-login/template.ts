@@ -19,11 +19,12 @@ export const template = (props:UxlLogin) => html`
          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
       </div>
       <div class="inputs__password">
-        <input class="password" type="password"/>
+        <input class="password" .type="${props.inputType}"/>
       </div>       
     </div>
   </div>
   <button class="btn-acceder" .disabled="${!props.canSubmit}">Entrar</button>
+  <button class="btn-showPassword" .disabled="${!props.canShow}">Mostrar contraseña</button>
 </div>
 
 `;
