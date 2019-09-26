@@ -7,26 +7,37 @@ import { template } from "./template";
 
 export class UxlLogin extends LitElement {
 
-  static get styles() {
-    return css`
-      ${unsafeCSS(styles)}
-    `;
-  }
-
-
-  @property()
-  public canDoLogin: boolean;
-
   @query(".username")
   public userNameInput: any;
 
   @query(".password")
   public passwordInput: any;
 
+  @query(".btn-acceder")
+  public btnAcceder: any;
+
+
+   static get styles() {
+    return css`
+      ${unsafeCSS(styles)}
+    `;
+  }
+
   public render() {
+
+    warning();
+    
+  
     return html`
       ${template(this)}
     `;
   }
 
+
+
 }
+
+
+function warning(): void {
+  alert("This is my warning message");
+  }
