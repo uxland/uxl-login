@@ -24,7 +24,10 @@ export const template = (props:UxlLogin) => html`
     </div>
   </div>
   <button class="btn-acceder" .disabled="${!props.canSubmit}">Entrar</button>
-  <button class="btn-showPassword" .disabled="${!props.canShow}">Mostrar contraseña</button>
+  <button class="btn-showPassword" .disabled="${!props.canShow}">${props.showPassText}</button>
+  <button class="btn-newUser" ">Nuevo Usuario</button>
+  <div class="forgot-pass">¿Ha olvidado su contraseña?</div>
+  <div class="welcome-msg">${props.welcomeMsg} </div>
 </div>
 
 `;
