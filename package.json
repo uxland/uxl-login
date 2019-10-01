@@ -15,7 +15,9 @@
     "cjs": true
   },
   "dependencies": {
+    "@polymer/paper-icon-button": "^3.0.2",
     "@polymer/polymer": "^3.0.0",
+    "@uxland/uxl-tile-view": "^3.0.5",
     "@uxland/uxl-utilities": "^3.3.6",
     "lit-element": "^2.0.1"
   },

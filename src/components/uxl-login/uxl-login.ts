@@ -4,6 +4,8 @@ import styles from "./styles.scss";
 import { template } from "./template";
 import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
 
+
+
 @customElement("uxl-login")
 
 export class UxlLogin extends LitElement {
@@ -18,10 +20,20 @@ export class UxlLogin extends LitElement {
   public inputType: string = "password";
 
   @property()
+  public loginBtn: string = "Entrar";
+
+  @property()
   public showPassText: string = "Mostrar Contraseña";
 
   @property()
-  public welcomeMsg: string = "";
+  public msgSubmit: string = "";
+
+  @property()
+  public newUser: string="nuevo usuario";
+
+  @property()
+    public forgotPass:string="¿Ha olvidado la contraseña?"
+  
 
   @query(".username")
   public userNameInput: any;
@@ -40,9 +52,17 @@ export class UxlLogin extends LitElement {
   //decorator listen (event listener, pasas acción y elemento al que se le aplica)
   @listen("click",".btn-acceder")
   onClickEnter(){
-    this.welcomeMsg="Welcome " + this.userNameInput.value + "!"; //preguntar cómo hacer sin +
-  
 
+    this.datosUsuario(this.userNameInput.value,this.passwordInput.value);
+
+    if(!this.canSubmit){
+
+      this.msgSubmit="Error"; //preguntar cómo hacer sin +
+    
+    }else{
+    
+      this.msgSubmit="Welcome " + this.userNameInput.value + "!"; //preguntar cómo hacer sin +
+    }
   }
 
   @listen("click",".btn-showPassword")
@@ -74,6 +94,7 @@ export class UxlLogin extends LitElement {
                     && this.passwordInput 
                     && isNotNullNeitherEmpty(this.passwordInput.value);
                     //si todo esto se cumple = true
+                    //habría que añadir condición para mensaje de error 
   }
 
   public showPassword(){
@@ -92,6 +113,10 @@ export class UxlLogin extends LitElement {
       this.inputType="password";
       this.showPassText="Mostrar Contraseña";
     }
+  }
+
+  public datosUsuario(email,password){
+
   }
 
   static get styles() {
@@ -116,19 +141,19 @@ export class UxlLogin extends LitElement {
 // Activar el boton de enviar cuando el usuario ha introducido el usuario y password - OK
 // Permitir mostrar el contenido del password - OK
 // Opcionalmente mostrar el username con un mensaje de bienvenida - OK
+// Opcionalmente mostrar un boton/enlace para la recuperación del password - OK
+// Opcionalmente mostrar un boton/enlace de registro de nuevo usuario - OK
+// Se tiene que poder personalizar el mensaje - OK
+// Mediante el boton de acceso se lanza un evento con la información introducida por el usuario - OK
+// Mostrar un mensaje de error una vez enviado el evento de submit - OK
 
-// Opcionalmente mostrar un boton/enlace para la recuperación del password
-// Opcionalmente mostrar un boton/enlace de registro de nuevo usuario
 
 
-// Mostrar un mensaje de error una vez enviado el evento de submit
-// Mediante el boton de acceso se lanza un evento con la información introducida por el usuario
-// Se tiene que poder personalizar el mensaje
-// Se tiene que esconder el input de username // ???
-
+// Se tiene que esconder el input de username 
 // Personalizar estilos del componente (botones, inputs, etc)
-// Opcionalmente permitir que los inputs contengan iconos (personalizar ??? ) 
+// Opcionalmente permitir que los inputs contengan iconos //paper icon
 // Opcionalmente mostrar la imagen/icono del usuario
+
 
 
 //**LOCALIZACIÓN */

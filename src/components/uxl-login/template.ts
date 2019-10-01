@@ -1,13 +1,10 @@
-
 import { html } from "lit-element";
 import { classMap } from "lit-html/directives/class-map";
 import { UxlLogin } from './uxl-login';
+import { iconTemplate } from "./icons/login-icons";
 
 export const template = (props:UxlLogin) => html`
-
-
 <h2>Login</h2>
-
 <div class="content">
   <div class="login">
     <div class="inputs">
@@ -25,9 +22,12 @@ export const template = (props:UxlLogin) => html`
   </div>
   <button class="btn-acceder" .disabled="${!props.canSubmit}">Entrar</button>
   <button class="btn-showPassword" .disabled="${!props.canShow}">${props.showPassText}</button>
-  <button class="btn-newUser" ">Nuevo Usuario</button>
-  <div class="forgot-pass">¿Ha olvidado su contraseña?</div>
-  <div class="welcome-msg">${props.welcomeMsg} </div>
-</div>
+  <button class="btn-newUser">${props.newUser}</button>
+  <div class="forgot-pass">${props.forgotPass}</div>
+  <div class="submit-msg">${props.msgSubmit} </div>
 
+
+</div>
 `;
+
+// <paper-icon-button icon="${iconTemplate}"></paper-icon-button>
