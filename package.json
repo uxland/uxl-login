@@ -15,11 +15,15 @@
     "cjs": true
   },
   "dependencies": {
+    "@material/mwc-button": "^0.9.1",
+    "@material/mwc-icon": "^0.9.1",
+    "@material/mwc-textfield": "^0.9.1",
     "@polymer/paper-icon-button": "^3.0.2",
     "@polymer/polymer": "^3.0.0",
     "@uxland/uxl-tile-view": "^3.0.5",
-    "@uxland/uxl-utilities": "^3.3.6",
-    "lit-element": "^2.0.1"
+    "@uxland/uxl-utilities": "^3.3.7",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

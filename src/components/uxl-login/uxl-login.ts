@@ -5,10 +5,14 @@ import { template } from "./template";
 import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
 
 
-
 @customElement("uxl-login")
 
 export class UxlLogin extends LitElement {
+  @property()
+  public userName: string = "";
+
+  @property()
+  public displayName: string = "";
 
   @property()
   public canSubmit: boolean = false;
@@ -30,6 +34,14 @@ export class UxlLogin extends LitElement {
 
   @property()
   public newUser: string="nuevo usuario";
+
+  @property()
+  public passIcon: string="";
+
+  
+  @property()
+  public userIcon: string="";
+
 
   @property()
     public forgotPass:string="¿Ha olvidado la contraseña?"
@@ -119,6 +131,12 @@ export class UxlLogin extends LitElement {
 
   }
 
+  public hideUserShowName(){
+    if(this.userIsLogged){
+      this.userNameInput.hide();
+    }
+  }
+
   static get styles() {
     return css`
       ${unsafeCSS(styles)}
@@ -146,15 +164,12 @@ export class UxlLogin extends LitElement {
 // Se tiene que poder personalizar el mensaje - OK
 // Mediante el boton de acceso se lanza un evento con la información introducida por el usuario - OK
 // Mostrar un mensaje de error una vez enviado el evento de submit - OK
-
+// Opcionalmente permitir que los inputs contengan iconos - OK
 
 
 // Se tiene que esconder el input de username 
 // Personalizar estilos del componente (botones, inputs, etc)
-// Opcionalmente permitir que los inputs contengan iconos //paper icon
 // Opcionalmente mostrar la imagen/icono del usuario
-
-
 
 //**LOCALIZACIÓN */
 // Personalizar y localizar el texto del boton de submit
