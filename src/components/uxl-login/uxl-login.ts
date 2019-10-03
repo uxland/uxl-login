@@ -12,7 +12,7 @@ export class UxlLogin extends LitElement {
   public userName: string = "";
 
   @property()
-  public displayName: string = "";
+  public displayName: string = "dd";
 
   @property()
   public canSubmit: boolean = false;
@@ -42,11 +42,13 @@ export class UxlLogin extends LitElement {
   @property()
   public userIcon: string="";
 
+  @property()
+  public isHidden: string="";
+
 
   @property()
-    public forgotPass:string="¿Ha olvidado la contraseña?"
+  public forgotPass:string="¿Ha olvidado la contraseña?"
   
-
   @query(".username")
   public userNameInput: any;
 
@@ -69,13 +71,22 @@ export class UxlLogin extends LitElement {
 
     if(!this.canSubmit){
 
-      this.msgSubmit="Error"; //preguntar cómo hacer sin +
+      this.msgSubmit="Error";
     
     }else{
     
-      this.msgSubmit="Welcome " + this.userNameInput.value + "!"; //preguntar cómo hacer sin +
+      if(this.displayName){
+
+        this.msgSubmit="Welcome " + this.displayName + "!"; 
+    
+      }else{
+        
+        this.msgSubmit="Welcome " + this.userNameInput.value+"!"; 
+      }
     }
+    
   }
+
 
   @listen("click",".btn-showPassword")
   onClickPass(){
@@ -101,14 +112,22 @@ export class UxlLogin extends LitElement {
 
   //ponemos tanto el valor del elemento como el elemento, por si no existiera
   public userCanSubmit(){
-    this.canSubmit = this.userNameInput 
-                    && isNotNullNeitherEmpty(this.userNameInput.value) 
-                    && this.passwordInput 
-                    && isNotNullNeitherEmpty(this.passwordInput.value);
-                    //si todo esto se cumple = true
-                    //habría que añadir condición para mensaje de error 
+
+
+    if(this.displayName){
+
+      this.canSubmit = this.passwordInput 
+                      && isNotNullNeitherEmpty(this.passwordInput.value);
+
+    }else{
+      this.canSubmit = this.userNameInput 
+                      && isNotNullNeitherEmpty(this.userNameInput.value) 
+                      && this.passwordInput 
+                      && isNotNullNeitherEmpty(this.passwordInput.value);            
+    }           //habría que añadir condición para mensaje de error 
   }
 
+ 
   public showPassword(){
     this.canShow = this.passwordInput 
                    && isNotNullNeitherEmpty(this.passwordInput.value);
@@ -132,10 +151,17 @@ export class UxlLogin extends LitElement {
   }
 
   public hideUserShowName(){
-    if(this.userIsLogged){
-      this.userNameInput.hide();
-    }
+
+  if(this.displayName !== ""){
+
+    this.isHidden="display:none;";
+
+  }else{
+    
+    this.isHidden=""; 
   }
+}
+
 
   static get styles() {
     return css`
@@ -144,9 +170,11 @@ export class UxlLogin extends LitElement {
   }
 
   public render() {
-
+ 
     return html`
+    
       ${template(this)}
+      
     `;
   }
 }
@@ -165,9 +193,9 @@ export class UxlLogin extends LitElement {
 // Mediante el boton de acceso se lanza un evento con la información introducida por el usuario - OK
 // Mostrar un mensaje de error una vez enviado el evento de submit - OK
 // Opcionalmente permitir que los inputs contengan iconos - OK
+// Se tiene que esconder el input de username - OK
 
 
-// Se tiene que esconder el input de username 
 // Personalizar estilos del componente (botones, inputs, etc)
 // Opcionalmente mostrar la imagen/icono del usuario
 

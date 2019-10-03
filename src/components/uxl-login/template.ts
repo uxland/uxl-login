@@ -10,19 +10,28 @@ export const template = (props:UxlLogin) => html`
 
 ${iconTemplate()}
 
+<script>
+		window.onload=${props.hideUserShowName()} {
+			alert('OK');
+		}
+</script>
+
 <h2>Login</h2>
 <div class="content">
   <div class="login">
+  <h2>${props.displayName}</h2>
+
     <div class="inputs">
       <div class="inputs__username">        
         <mwc-textfield
           outlined
           icon="${props.userIcon}"
           class="username"
+          style="${props.isHidden}"
           autofocus
           autocapitalize="none" 
-          type= "email" 
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
+          type= "email"      
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
         </mwc-textfield>
     </div>
 
