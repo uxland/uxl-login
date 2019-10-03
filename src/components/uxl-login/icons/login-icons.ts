@@ -4,7 +4,7 @@ import "@polymer/iron-iconset-svg/iron-iconset-svg";
 import {html} from "lit-html";
 
 export const iconTemplate = () => html`
-  <iron-iconset-svg name="eug-icons" size="24">
+  <iron-iconset-svg name="login-icons" size="24">
     <svg>
       <defs>
         <g id="add"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></g>
