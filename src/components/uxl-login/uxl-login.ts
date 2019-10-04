@@ -9,7 +9,7 @@ import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
 
 export class UxlLogin extends LitElement {
   @property()
-  public userName: string = "userName";
+  public userName: string = "";
 
   @property()
   public displayName: string = "";
@@ -105,31 +105,27 @@ export class UxlLogin extends LitElement {
         this.showMsgSubmit="";
         this.msgSubmit += " " + this.userName + "!"; 
 
-      }else{       
+      }else{    
+        this.showMsgSubmit="";   
         this.msgSubmit += " " + this.userNameInput.value + "!"; 
       }
     }
   }
 
-
   @listen("click",".btn-showPassword")
   onClickPass(){
-
     this.changePasswordType();  
- 
   }
 
   @listen("keyup", ".password")
   public onKeyUpPass(){
     this.userCanSubmit();
     this.showPassword();
-   
   }
 
   @listen("keyup",".username")
   public onKeyUpUser(){
-    this.userCanSubmit();
-   
+    this.userCanSubmit(); 
   }
 
   //user can login if username and password are typed
@@ -150,7 +146,6 @@ export class UxlLogin extends LitElement {
                       && isNotNullNeitherEmpty(this.passwordInput.value);            
     }       
   }
-
 
   public showPassword(){
     this.canShow = this.passwordInput 
@@ -182,14 +177,11 @@ export class UxlLogin extends LitElement {
       this.userShowedName=this.userName;
     }
 
-  if((this.displayName !== "") || ( this.userName!=="")){
-
-    this.UserInputIsHidden="display:none";
-
-  }else{
-    
-    this.userInputType=""; 
-  }
+    if((this.displayName !== "") || ( this.userName!=="")){
+      this.UserInputIsHidden="display:none";
+    }else{     
+      this.userInputType=""; 
+    }
 }
 
   static get styles() {
