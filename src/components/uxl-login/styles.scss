@@ -1,6 +1,55 @@
 :host {
-    
-    width:100%;
+    display:inline-block;
+    background-color: #E0F2F1;
+    width: 100%;
     height: 100%;
-    background-color: #4CAF50;
+    font-family: 'Courier New', Courier, monospace;
+
   }
+    
+    .content{
+    text-align: center;
+
+        .userImg{
+            width:4rem;
+            height:4rem;
+            padding-top:30px;
+        }
+
+        .login-form{
+            height:100%;
+            width:100%;
+
+            mwc-button {
+                --mdc-theme-primary:#00897B;
+                color: #00897B;
+                padding: 2px;
+            }
+
+            .container{
+                text-align: center;
+            }
+
+            .forgotPass {
+            text-decoration: none;
+
+            }
+
+            .username, .password {
+                padding:10px;
+                --mdc-theme-primary:#00897B;              
+            }
+        }
+
+        .submit-msg{
+            padding-top:20px;
+        }
+    }
+
+
+
+ 
+
+
+
+  

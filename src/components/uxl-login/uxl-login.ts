@@ -37,10 +37,10 @@ export class UxlLogin extends LitElement {
   public inputType: string = "password";
 
   @property()
-  public loginBtnText: string = "Entrar";
+  public loginBtnText: string = "Iniciar sesión";
 
   @property()
-  public showPassText: string = "Mostrar Contraseña";
+  public showPassText: string = "Ver";
 
   @property()
   public msgSubmit: string = "Welcome";
@@ -70,7 +70,7 @@ export class UxlLogin extends LitElement {
   public forgotPassHref:string=""
 
   @property()
-  public userImgSrc:string="https://via.placeholder.com/140x100"
+  public userImgSrc:string="";
   
   @query(".username")
   public userNameInput: any;
@@ -157,11 +157,11 @@ export class UxlLogin extends LitElement {
     if(this.inputType==="password"){
 
       this.inputType="text";
-      this.showPassText="Ocultar Contraseña";
+      this.showPassText="Ocultar";
 
     }else{
       this.inputType="password";
-      this.showPassText="Mostrar Contraseña";
+      this.showPassText="Ver";
     }
   }
 
@@ -181,6 +181,10 @@ export class UxlLogin extends LitElement {
       this.UserInputIsHidden="display:none";
     }else{     
       this.userInputType=""; 
+    }
+
+    if(this.userImgSrc===""){
+      this.userImgSrc="/src/components/uxl-login/icons/user.svg";
     }
 }
 
