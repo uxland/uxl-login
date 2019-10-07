@@ -17,14 +17,14 @@ ${iconTemplate()}
 
   <div class="login">
 
-  <img class="userImg" src="${props.userImgSrc}">
+    <img class="userImg" src="${props.userImgSrc}">
 
-  <h2 class="">${props.userShowedName}</h2> 
+    <h2 class="">${props.userShowedName}</h2> 
 
     <form action="" method="post" class="login-form">
       <div class="inputs__username">        
           <mwc-textfield     
-              outlined  
+              filled  
               icon="${props.userIcon}"
               class="username"
               style="${props.UserInputIsHidden}"
@@ -38,7 +38,7 @@ ${iconTemplate()}
       <div class="inputs__password">
 
         <mwc-textfield 
-            outlined
+            filled
             class="password" 
             .type="${props.inputType}"
             icon="${props.passwordIcon}">                       
@@ -73,11 +73,12 @@ ${iconTemplate()}
 
     </form>
 
-  
-  <div class="submit-msg"
-      style="${props.showMsgSubmit}">
-      ${props.msgSubmit} </div>  
+    <div class="submit-msg"
+        style="${props.showMsgSubmit}">
+        ${props.msgSubmit} </div>  
+    </div>
+
   </div>
-  </div>
-  </div>
+
+</div>
 `;
