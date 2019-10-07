@@ -1,3 +1,5 @@
+@import 'variables&mixins';
+
 :host {
     display:inline-block;
     background-color: #E0F2F1;
@@ -11,8 +13,8 @@
     text-align: center;
 
         .userImg{
-            width:4rem;
-            height:4rem;
+            width:5rem;
+            height:5rem;
             padding-top:30px;
         }
 
@@ -21,8 +23,7 @@
             width:100%;
 
             mwc-button {
-                --mdc-theme-primary:#00897B;
-                color: #00897B;
+                --mdc-theme-primary:var(--uxl-login-primary-color, #00897B);
                 padding: 2px;
             }
 
@@ -32,6 +33,7 @@
 
             .forgotPass {
             text-decoration: none;
+            color:black;
 
             }
 
@@ -39,10 +41,13 @@
                 padding:10px;
                 --mdc-theme-primary:#00897B;              
             }
+
         }
 
         .submit-msg{
+            @include fadein();
             padding-top:20px;
+         
         }
     }
 

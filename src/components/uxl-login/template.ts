@@ -43,14 +43,16 @@ ${iconTemplate()}
             .type="${props.inputType}"
             icon="${props.passwordIcon}">                       
         </mwc-textfield>
+
       </div>   
 
-        <mwc-button 
-        raised
-        class="btn-showPassword" 
-        .disabled="${!props.canShow}">
-        ${props.showPassText}
-        </mwc-button>   
+      <mwc-button 
+      raised
+      class="btn-showPassword" 
+      .disabled="${!props.canShow}">
+      ${props.showPassText}
+      </mwc-button>   
+      
 
         <div class="container">
 

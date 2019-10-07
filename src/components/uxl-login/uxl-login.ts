@@ -12,7 +12,7 @@ export class UxlLogin extends LitElement {
   public userName: string = "";
 
   @property()
-  public displayName: string = "";
+  public displayName: string = "Esther";
 
   @property()
   public userShowedName: string ="";
@@ -70,7 +70,7 @@ export class UxlLogin extends LitElement {
   public forgotPassHref:string=""
 
   @property()
-  public userImgSrc:string="";
+  public userImgSrc:string="https://instagram.fbcn7-1.fna.fbcdn.net/vp/8c40b3efaf0b2ab7670c089893f7b648/5E20D9B3/t51.2885-19/s320x320/57811458_403389766907393_1069001262436974592_n.jpg?_nc_ht=instagram.fbcn7-1.fna.fbcdn.net";
   
   @query(".username")
   public userNameInput: any;
