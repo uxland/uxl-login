@@ -7,7 +7,7 @@
     height: 100%;
     font-family: 'Courier New', Courier, monospace;
 
-  }
+}
     
     .content{
     text-align: center;
@@ -32,25 +32,21 @@
             }
 
             .forgotPass {
-            text-decoration: none;
-            color:black;
-
+                text-decoration: none;
+                color:black;
             }
 
             .username, .password {
                 padding:10px;
                 --mdc-theme-primary:#00897B;              
             }
-
         }
 
         .submit-msg{
             @include fadein();
-            padding-top:20px;
-         
+            padding-top:20px;        
         }
     }
-
 
 
  
