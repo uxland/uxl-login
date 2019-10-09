@@ -22,10 +22,46 @@ import "@uxland/uxl-login";
 </body>
 ```
 
-### Attributes availables
+### Properties
+  `userName`: Name of the user
 
+  `displayName`: The complete name of the user
+
+  `userShowedName`: The user name you want to show when submit, could be ``userName`` | ``displayName``
+
+  `userInputPattern`: The pattern for the user Input, could be ``[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`` | ``[A-Za-z]``
+
+  `userInputType`: The required type for the user input, could be ``text`` | ``email``;
+
+  `loginBtnText`: Submit button text
+
+  `showPassText`: Show password button text
+
+  `newUserButton`: New User button text
+
+  `msgSubmit`: Success submit text, message + `userShowedName` will appear
+
+  `msgSubmitError`: Error message if can't login
+
+  `passwordIcon`: Password icon inside password input
+  
+  `userIcon`: User icon inside user input
+
+  `forgotPassText`: Forgot password link text
+
+  `forgotPassHref` Forgot password HREF
+
+  `userImgSrc`: User image
+  
+  
 
 ### Styling
+The following custom properties and mixins are available for styling:
+
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--uxl-login-primary-color` | The background color of the items header | `#00897B` |
+| `--uxl-login-background-color` | The background color of the items body | `#E0F2F1` |
 
 
 ### Events
