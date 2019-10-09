@@ -60,8 +60,8 @@ The following custom properties and mixins are available for styling:
 
 | Custom property | Description | Default |
 | --- | --- | --- |
-| `--uxl-login-primary-color` | The background color of the items header | `#00897B` |
-| `--uxl-login-background-color` | The background color of the items body | `#E0F2F1` |
+| `--uxl-login-primary-color` | Buttons and textfield color | `#00897B` |
+| `--uxl-login-background-color` | Component background color | `#E0F2F1` |
 
 
 ### Events
