@@ -15,14 +15,14 @@ export const template = (props:UxlLogin) => html`
 ${iconTemplate()}
 <div class="content">
 
-  <div class="login">
+  <div class="login" part="login">
 
-    <img class="userImg" src="${props.userImgSrc}">
+    <img class="userImg" src="${props.userImgSrc}"part="login__userImage">
 
-    <h2 class="">${props.userShowedName}</h2> 
+    <h2 class="" part="login__username">${props.userShowedName}</h2> 
 
-    <form action="" method="post" class="login-form">
-      <div class="inputs__username">        
+    <form action="" method="" class="login-form">
+      <div class="inputs__username" part="login__inputUsername">        
           <mwc-textfield     
               filled  
               icon="${props.userIcon}"
@@ -32,16 +32,18 @@ ${iconTemplate()}
               autocapitalize="none" 
               type="${props.userInputType}"      
               pattern="${props.userInputPattern}">
+              part="login__textfield"
           </mwc-textfield>
       </div>
 
-      <div class="inputs__password">
+      <div class="inputs__password" part="login__inputPassword">
 
         <mwc-textfield 
             filled
             class="password" 
             .type="${props.inputType}"
-            icon="${props.passwordIcon}">                       
+            icon="${props.passwordIcon}">   
+            part="login__textfield"                    
         </mwc-textfield>
 
       </div>   
@@ -49,31 +51,34 @@ ${iconTemplate()}
       <mwc-button 
       raised
       class="btn-showPassword" 
-      .disabled="${!props.canShow}">
+      .disabled="${!props.canShow}"
+      part="login__btn">
       ${props.showPassText}
       </mwc-button>   
       
 
-        <div class="container">
-
+      <div class="container">
         <mwc-button 
             raised
             class="btn-acceder" 
-            .disabled="${!props.canSubmit}">
+            .disabled="${!props.canSubmit}"
+            part="login__btn">
             ${props.loginBtnText}
         </mwc-button>
 
         <mwc-button 
             raised
-            class="btn-newUser">
+            class="btn-newUser"
+            part="login__btn">
             ${props.newUserButton} 
         </mwc-button>
       </div>
-      <a class="forgotPass" href="">${props.forgotPassText}</a>
+    
+      <a class="forgotPass" href="" part="login__forgotPass">${props.forgotPassText}</a>
 
     </form>
 
-    <div class="submit-msg"
+    <div class="submit-msg" part="login__submitMsg"
         style="${props.showMsgSubmit}">
         ${props.msgSubmit} </div>  
     </div>
