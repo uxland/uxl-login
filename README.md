@@ -49,9 +49,9 @@ import "@uxland/uxl-login";
 
   `forgotPassText`: Forgot password link text
 
-  `forgotPassHref` Forgot password redirect URL
+  `forgotPassHref` Forgot password HREF
 
-  `userImgSrc`: User image;
+  `userImgSrc`: User image
   
   
 
