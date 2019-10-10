@@ -3,13 +3,32 @@ import { css, customElement, html, LitElement, property, query, unsafeCSS } from
 import styles from "./styles.scss";
 import { template } from "./template";
 import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
-
+import { defaultOptions } from 'src/utilities';
 
 @customElement("uxl-login")
 
 export class UxlLogin extends LitElement {
+
+  static get styles() {
+    return css`
+      ${unsafeCSS(styles)}
+    `;
+  }
+
+  public render() {
+ 
+    return html`
+    
+      ${template(this)}
+      
+    `;
+  }
+
   @property()
   public userName: string;
+
+  @property()
+  public userNameLabel: string = null;
 
   @property()
   public displayName: string;
@@ -37,7 +56,7 @@ export class UxlLogin extends LitElement {
   public inputType: string = "password";
 
   @property()
-  public loginBtnText: string = "Iniciar sesión";
+  public loginBtnText: string;
 
   @property()
   public showPassText: string = "Ver";
@@ -49,7 +68,7 @@ export class UxlLogin extends LitElement {
   public showMsgSubmit: string = "display:none";
 
   @property()
-  public msgSubmitError: string = "Mensaje de Error";
+  public msgSubmitError: string;
 
   @property()
   public newUserButton: string="Nuevo usuario";
@@ -61,17 +80,17 @@ export class UxlLogin extends LitElement {
   public userIcon: string="";
 
   @property()
-  public UserInputIsHidden: string="";
+  public userInputIsHidden: boolean;
 
   @property()
-  public forgotPassText:string="¿Ha olvidado la contraseña?"
+  public forgotPassText:string="Recordar contraseña"
 
   @property()
   public forgotPassHref:string;
 
   @property()
   public userImgSrc:string;
-  
+
   
   @query(".username")
   public userNameInput: any;
@@ -88,6 +107,12 @@ export class UxlLogin extends LitElement {
   @query(".btn-newUser")
   public btnNewUser: any;
 
+  firstUpdated(){
+    this.userNameLabel = defaultOptions.usernameLabel;
+    this.loginBtnText = defaultOptions.submitMessage;
+    this.msgSubmitError = defaultOptions.errorMessage;
+    this.handleDisplayUserNameInput();
+  }
 
   @listen("click",".btn-acceder")
   onClickEnter(){
@@ -113,6 +138,9 @@ export class UxlLogin extends LitElement {
         this.msgSubmit += " " + this.userNameInput.value + "!"; 
       }
     }
+    let detail = {user: this.userNameInput.value, password: this.passwordInput.value}
+
+    //TODO crear un evento custom y despacharlo enviando el
   }
 
 
@@ -140,7 +168,7 @@ export class UxlLogin extends LitElement {
  
   public userCanSubmit(){
 
-    if((this.displayName) || (this.userName)){
+    if(this.displayName || this.userName){
       this.canSubmit = this.passwordInput 
                       && isNotNullNeitherEmpty(this.passwordInput.value);
    
@@ -173,18 +201,20 @@ export class UxlLogin extends LitElement {
 
   }
 
-  public hideUserShowName(){
+  public handleDisplayUserNameInput(){
 
-    if(this.displayName){
-      this.userShowedName=this.displayName;
-    }else{
-      this.userShowedName=this.userName;
-    }
+    // if(this.displayName)
+    //   this.userShowedName=this.displayName;
+    // else
+    //   this.userShowedName=this.userName;
 
-    if((this.displayName) || (this.userName)){
-      this.UserInputIsHidden="display:none";
+    this.userShowedName = this.displayName ? this.displayName : this.userName;
+
+    if(this.displayName || this.userName){
+      this.userInputIsHidden=false;
     }else{     
       this.userInputType=""; 
+      this.userInputIsHidden=true;
     }
 
     if(!this.userImgSrc){
@@ -192,20 +222,7 @@ export class UxlLogin extends LitElement {
     }
 }
 
-  static get styles() {
-    return css`
-      ${unsafeCSS(styles)}
-    `;
-  }
-
-  public render() {
- 
-    return html`
-    
-      ${template(this)}
-      
-    `;
-  }
+  
 }
 
 
@@ -232,5 +249,19 @@ export class UxlLogin extends LitElement {
 //**LOCALIZACIÓN */
 // Personalizar y localizar el texto del boton de submit
 // Se tiene que poder localizar el mensaje
+
+
+//*********************************************** */
+/*
+
+Arreglar nombres (más largos y más claros)
+Hacer más funciones
+demo-component
+evento (enviar usuario/contraseña)
+varias demos diferentes
+utilities
+
+*/
+
 
 
