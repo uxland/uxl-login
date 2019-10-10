@@ -118,8 +118,6 @@ export class UxlLogin extends LitElement {
   @listen("click",".btn-acceder")
   onClickEnter(){
 
-    
-
     if(this.canSubmit){
 
       this.datosUsuario(this.userNameInput.value,this.passwordInput.value);
@@ -131,8 +129,6 @@ export class UxlLogin extends LitElement {
     
      this.submitMessage = this.submitErrorMessage;
     }
-  
-
     //TODO crear un evento custom y despacharlo enviando el
   }
 
@@ -158,24 +154,32 @@ export class UxlLogin extends LitElement {
     this.userCanSubmit(); 
   }
 
- 
   public userCanSubmit(){
 
-    if(this.displayName || this.userName){
-      this.canSubmit = this.passwordInput 
-                      && isNotNullNeitherEmpty(this.passwordInput.value);
-   
-    }else{
-      this.canSubmit = this.userNameInput 
-                      && isNotNullNeitherEmpty(this.userNameInput.value) 
-                      && this.passwordInput 
-                      && isNotNullNeitherEmpty(this.passwordInput.value);            
-    }       
+    this.validPassword();
+    this.validUsername();
+  
   }
 
   public showPassword(){
     this.canShow = this.passwordInput 
                    && isNotNullNeitherEmpty(this.passwordInput.value);
+  }
+
+  public validUsername(){
+
+    if(this.displayName || this.userName){
+      this.canSubmit = this.passwordInput 
+                      && isNotNullNeitherEmpty(this.passwordInput.value);
+  }
+}
+
+  public validPassword(){
+        
+      this.canSubmit = this.userNameInput 
+                      && isNotNullNeitherEmpty(this.userNameInput.value) 
+                      && this.passwordInput 
+                      && isNotNullNeitherEmpty(this.passwordInput.value);                  
   }
 
   public changePasswordType(){
@@ -212,40 +216,38 @@ export class UxlLogin extends LitElement {
    
 }
 
-public myDefaultOptions(){
+  public myDefaultOptions(){
 
-  this.userNameLabel = defaultOptions.usernameLabel;
-  this.loginButtonText = defaultOptions.submitMessage;
-  this.submitErrorMessage = defaultOptions.errorMessage;
+    this.userNameLabel = defaultOptions.usernameLabel;
+    this.loginButtonText = defaultOptions.submitMessage;
+    this.submitErrorMessage = defaultOptions.errorMessage;
 
-}
-
-public defaultUserImage(){
-
-  if(!this.userImgSrc){
-    this.userImgSrc="/src/components/uxl-login/icons/user.svg";
   }
 
-}
+  public defaultUserImage(){
 
-public showDisplayNameOrUsername(){
+    if(!this.userImgSrc){
+      this.userImgSrc="/src/components/uxl-login/icons/user.svg";
+    }
+  }
 
-  if(this.displayName){
-        
-    this.submitMessage += " " + this.displayName + "!"; 
+  public showDisplayNameOrUsername(){
+
+    if(this.displayName){
+          
+      this.submitMessage += " " + this.displayName + "!"; 
+      
+    }else if(this.userName){
+
+      this.submitMessage += " " + this.userName + "!"; 
+
+    }else{    
     
-  }else if(this.userName){
+      this.submitMessage += " " + this.userNameInput.value + "!"; 
+    }
 
-    this.submitMessage += " " + this.userName + "!"; 
-
-  }else{    
-  
-    this.submitMessage += " " + this.userNameInput.value + "!"; 
   }
 
-}
-
-  
 }
 
 
