@@ -15,11 +15,10 @@ ${iconTemplate()}
     <img class="userImg" src="${props.userImgSrc}"part="login__userImage">
     
       <div class="submit-msg" part="login__submitMsg"
-      ?hidden="${props.hideWelcomeMessage}">
+      ?hidden="">
       ${props.submitMessage} </div>  
       </div>
 
-    <h2 class="" part="login__username">${props.userShowedName}</h2> 
 
     <form action="" method="" class="login-form">
       <div class="inputs__username" part="login__inputUsername">        

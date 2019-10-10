@@ -207,23 +207,9 @@ export class UxlLogin extends LitElement {
       this.hideUserInput=false;
     }
 
-    if(!this.userImgSrc){
-      this.userImgSrc="/src/components/uxl-login/icons/user.svg";
-    }
-
-    if(this.displayName){
-        
-      this.submitMessage += " " + this.displayName + "!"; 
-      
-    }else if(this.userName){
-  
-      this.submitMessage += " " + this.userName + "!"; 
-
-    }else{    
-    
-      this.submitMessage += " " + this.userNameInput.value + "!"; 
-    }
-
+    this.defaultUserImage();
+    this.showDisplayNameOrUsername();
+   
 }
 
 public myDefaultOptions(){
@@ -232,6 +218,30 @@ public myDefaultOptions(){
   this.loginButtonText = defaultOptions.submitMessage;
   this.submitErrorMessage = defaultOptions.errorMessage;
 
+}
+
+public defaultUserImage(){
+
+  if(!this.userImgSrc){
+    this.userImgSrc="/src/components/uxl-login/icons/user.svg";
+  }
+
+}
+
+public showDisplayNameOrUsername(){
+
+  if(this.displayName){
+        
+    this.submitMessage += " " + this.displayName + "!"; 
+    
+  }else if(this.userName){
+
+    this.submitMessage += " " + this.userName + "!"; 
+
+  }else{    
+  
+    this.submitMessage += " " + this.userNameInput.value + "!"; 
+  }
 
 }
 
