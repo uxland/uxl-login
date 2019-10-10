@@ -31,7 +31,7 @@ export class UxlLogin extends LitElement {
   public userNameLabel: string = null;
 
   @property()
-  public displayName: string;
+  public displayName: string = "";
 
   @property()
   public userShowedName: string ="";
@@ -53,22 +53,22 @@ export class UxlLogin extends LitElement {
   public canShow: boolean = false;
 
   @property()
-  public inputType: string = "password";
+  public passwordInputType: string = "password";
 
   @property()
-  public loginBtnText: string;
+  public loginButtonText: string;
 
   @property()
-  public showPassText: string = "Ver";
+  public showPasswordButtonText: string = "Ver";
 
   @property()
-  public msgSubmit: string = "Bienvenid@";
+  public submitMessage: string = "Bienvenid@";
 
   @property()
   public showMsgSubmit: string = "display:none";
 
   @property()
-  public msgSubmitError: string;
+  public submitErrorMessage: string;
 
   @property()
   public newUserButton: string="Nuevo usuario";
@@ -80,10 +80,13 @@ export class UxlLogin extends LitElement {
   public userIcon: string="";
 
   @property()
-  public userInputIsHidden: boolean;
+  public hideUserInput: boolean=false;
 
   @property()
-  public forgotPassText:string="Recordar contraseña"
+  public showWelcomeMessage: boolean=false;
+
+  @property()
+  public forgotPasswordText:string="Recordar contraseña"
 
   @property()
   public forgotPassHref:string;
@@ -99,46 +102,36 @@ export class UxlLogin extends LitElement {
   public passwordInput: any;
 
   @query(".btn-acceder")
-  public btnAcceder: any;
+  public submitButton: any;
 
   @query(".btn-showPassword")
-  public btnShowPass: any;
+  public showPasswordButton: any;
 
-  @query(".btn-newUser")
-  public btnNewUser: any;
+  // @query(".btn-newUser")
+  // public newUserButton: any;
 
   firstUpdated(){
-    this.userNameLabel = defaultOptions.usernameLabel;
-    this.loginBtnText = defaultOptions.submitMessage;
-    this.msgSubmitError = defaultOptions.errorMessage;
-    this.handleDisplayUserNameInput();
+    this.myDefaultOptions();
+    this.handleShowUsername();
   }
 
   @listen("click",".btn-acceder")
   onClickEnter(){
 
-    this.datosUsuario(this.userNameInput.value,this.passwordInput.value);
-
-    if(!this.canSubmit){
-
-      this.msgSubmit = this.msgSubmitError;
     
+
+    if(this.canSubmit){
+
+      this.datosUsuario(this.userNameInput.value,this.passwordInput.value);
+
+      //crear evento
+      let detail = {user: this.userNameInput.value, password: this.passwordInput.value}
+     
     }else{
     
-      if(this.displayName){
-        this.showMsgSubmit="";
-        this.msgSubmit += " " + this.displayName + "!"; 
-        
-      }else if(this.userName){
-        this.showMsgSubmit="";
-        this.msgSubmit += " " + this.userName + "!"; 
-
-      }else{    
-        this.showMsgSubmit="";   
-        this.msgSubmit += " " + this.userNameInput.value + "!"; 
-      }
+     this.submitMessage = this.submitErrorMessage;
     }
-    let detail = {user: this.userNameInput.value, password: this.passwordInput.value}
+  
 
     //TODO crear un evento custom y despacharlo enviando el
   }
@@ -187,13 +180,13 @@ export class UxlLogin extends LitElement {
 
   public changePasswordType(){
  
-    if(this.inputType==="password"){
-      this.inputType="text";
-      this.showPassText="Ocultar";
+    if(this.passwordInputType==="password"){
+      this.passwordInputType="text";
+      this.showPasswordButtonText="Ocultar";
 
     }else{
-      this.inputType="password";
-      this.showPassText="Ver";
+      this.passwordInputType="password";
+      this.showPasswordButtonText="Ver";
     }
   }
 
@@ -201,25 +194,45 @@ export class UxlLogin extends LitElement {
 
   }
 
-  public handleDisplayUserNameInput(){
-
-    // if(this.displayName)
-    //   this.userShowedName=this.displayName;
-    // else
-    //   this.userShowedName=this.userName;
+  public handleShowUsername(){
 
     this.userShowedName = this.displayName ? this.displayName : this.userName;
 
     if(this.displayName || this.userName){
-      this.userInputIsHidden=false;
+      this.hideUserInput=true;
+      this.showWelcomeMessage=true;
+
     }else{     
-      this.userInputType=""; 
-      this.userInputIsHidden=true;
+
+      this.hideUserInput=false;
     }
 
     if(!this.userImgSrc){
       this.userImgSrc="/src/components/uxl-login/icons/user.svg";
     }
+
+    if(this.displayName){
+        
+      this.submitMessage += " " + this.displayName + "!"; 
+      
+    }else if(this.userName){
+  
+      this.submitMessage += " " + this.userName + "!"; 
+
+    }else{    
+    
+      this.submitMessage += " " + this.userNameInput.value + "!"; 
+    }
+
+}
+
+public myDefaultOptions(){
+
+  this.userNameLabel = defaultOptions.usernameLabel;
+  this.loginButtonText = defaultOptions.submitMessage;
+  this.submitErrorMessage = defaultOptions.errorMessage;
+
+
 }
 
   

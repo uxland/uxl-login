@@ -13,6 +13,11 @@ ${iconTemplate()}
   <div class="login" part="login">
 
     <img class="userImg" src="${props.userImgSrc}"part="login__userImage">
+    
+      <div class="submit-msg" part="login__submitMsg"
+      ?hidden="${props.hideWelcomeMessage}">
+      ${props.submitMessage} </div>  
+      </div>
 
     <h2 class="" part="login__username">${props.userShowedName}</h2> 
 
@@ -22,7 +27,7 @@ ${iconTemplate()}
               filled  
               icon="${props.userIcon}"
               class="username"
-              ?hidden="${props.userInputIsHidden}"
+              ?hidden="${props.hideUserInput}"
               autofocus
               autocapitalize="none" 
               type="${props.userInputType}"      
@@ -36,7 +41,7 @@ ${iconTemplate()}
         <mwc-textfield 
             filled
             class="password" 
-            .type="${props.inputType}"
+            .type="${props.passwordInputType}"
             icon="${props.passwordIcon}">   
             part="login__textfield"                    
         </mwc-textfield>
@@ -48,7 +53,7 @@ ${iconTemplate()}
       class="btn-showPassword" 
       .disabled="${!props.canShow}"
       part="login__btn">
-      ${props.showPassText}
+      ${props.showPasswordButtonText}
       </mwc-button>   
       
 
@@ -58,7 +63,7 @@ ${iconTemplate()}
             class="btn-acceder" 
             .disabled="${!props.canSubmit}"
             part="login__btn">
-            ${props.loginBtnText}
+            ${props.loginButtonText}
         </mwc-button>
 
         <mwc-button 
@@ -69,14 +74,11 @@ ${iconTemplate()}
         </mwc-button>
       </div>
     
-      <a class="forgotPass" href="" part="login__forgotPass">${props.forgotPassText}</a>
+      <a class="forgotPass" href="" part="login__forgotPass">${props.forgotPasswordText}</a>
 
     </form>
 
-    <div class="submit-msg" part="login__submitMsg"
-        style="${props.showMsgSubmit}">
-        ${props.msgSubmit} </div>  
-    </div>
+  
 
   </div>
 
