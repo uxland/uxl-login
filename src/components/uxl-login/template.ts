@@ -7,11 +7,6 @@ import "@material/mwc-textfield";
 import '@material/mwc-icon/mwc-icon-font.js';
 
 export const template = (props:UxlLogin) => html`
-
-<script>
-		window.onload=${props.hideUserShowName()} 
-</script>
-
 ${iconTemplate()}
 <div class="content">
 
@@ -27,7 +22,7 @@ ${iconTemplate()}
               filled  
               icon="${props.userIcon}"
               class="username"
-              style="${props.UserInputIsHidden}"
+              ?hidden="${props.userInputIsHidden}"
               autofocus
               autocapitalize="none" 
               type="${props.userInputType}"      
