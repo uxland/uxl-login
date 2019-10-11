@@ -120,16 +120,19 @@ export class UxlLogin extends LitElement {
 
     if(this.canSubmit){
 
-      this.datosUsuario(this.userNameInput.value,this.passwordInput.value);
-
-      //crear evento
-      let detail = {user: this.userNameInput.value, password: this.passwordInput.value}
-     
+        let event = new CustomEvent('my-event', {
+          detail: {
+            user: this.userNameInput.value, password: this.passwordInput.value
+            
+          }
+        });
+        this.dispatchEvent(event);
+      
     }else{
     
      this.submitMessage = this.submitErrorMessage;
     }
-    //TODO crear un evento custom y despacharlo enviando el
+
   }
 
 
@@ -194,10 +197,6 @@ export class UxlLogin extends LitElement {
     }
   }
 
-  public datosUsuario(email,password){
-
-  }
-
   public handleShowUsername(){
 
     this.userShowedName = this.displayName ? this.displayName : this.userName;
@@ -218,9 +217,16 @@ export class UxlLogin extends LitElement {
 
   public myDefaultOptions(){
 
-    this.userNameLabel = defaultOptions.usernameLabel;
-    this.loginButtonText = defaultOptions.submitMessage;
+    //his.userNameLabel = defaultOptions.usernameLabel;
+    this.loginButtonText = defaultOptions.submitButtonText;
     this.submitErrorMessage = defaultOptions.errorMessage;
+    this.submitMessage = defaultOptions.submitMessage;
+    this.displayName = defaultOptions.displayName;
+    this.showPasswordButtonText = defaultOptions.showPasswordButtonText;
+    this.newUserButton = defaultOptions.newUserButton;
+    this.passwordIcon = defaultOptions.passwordIcon;
+    this.userIcon = defaultOptions.userIcon;
+    //this.defaultUserImage = defaultOptions.userImgSrc;
 
   }
 
@@ -279,12 +285,12 @@ export class UxlLogin extends LitElement {
 //*********************************************** */
 /*
 
-Arreglar nombres (más largos y más claros)
-Hacer más funciones
+Arreglar nombres (más largos y más claros) - OK
+Hacer más funciones - OK
 demo-component
-evento (enviar usuario/contraseña)
+evento (enviar usuario/contraseña) - Ok?
 varias demos diferentes
-utilities
+utilities - OK
 
 */
 
