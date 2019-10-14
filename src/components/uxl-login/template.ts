@@ -25,6 +25,7 @@ ${iconTemplate()}
           <mwc-textfield     
               filled  
               icon="${props.userIcon}"
+              placeholder="${props.emailPlaceholder}"
               class="username"
               ?hidden="${props.hideUserInput}"
               autofocus
@@ -40,13 +41,12 @@ ${iconTemplate()}
         <mwc-textfield 
             filled
             class="password" 
+            placeholder="${props.passwordPlaceholder}"
             .type="${props.passwordInputType}"
             icon="${props.passwordIcon}">   
             part="login__textfield"     
                            
         </mwc-textfield>
-
-
 
       </div>   
 

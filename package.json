@@ -17,6 +17,8 @@
   "dependencies": {
     "@material/mwc-button": "^0.9.1",
     "@material/mwc-icon": "^0.9.1",
+    "@material/mwc-tab": "^0.10.0",
+    "@material/mwc-tab-bar": "^0.10.0",
     "@material/mwc-textfield": "^0.9.1",
     "@polymer/paper-icon-button": "^3.0.2",
     "@polymer/polymer": "^3.0.0",

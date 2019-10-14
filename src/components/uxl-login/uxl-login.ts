@@ -23,9 +23,16 @@ export class UxlLogin extends LitElement {
       
     `;
   }
+  
 
   @property()
   public userName: string;
+
+  @property()
+  public emailPlaceholder: string;
+
+  @property()
+  public passwordPlaceholder: any;
 
   @property()
   public userNameLabel: string = null;
@@ -132,9 +139,7 @@ export class UxlLogin extends LitElement {
     
      this.submitMessage = this.submitErrorMessage;
     }
-
   }
-
 
   @listen("click",".btn-newUser")
   onClickNewUser(){
@@ -226,6 +231,8 @@ export class UxlLogin extends LitElement {
     this.newUserButton = defaultOptions.newUserButton;
     this.passwordIcon = defaultOptions.passwordIcon;
     this.userIcon = defaultOptions.userIcon;
+    this.emailPlaceholder=defaultOptions.emailPlaceholder;
+    this.passwordPlaceholder = defaultOptions.passwordPlaceholder;
     //this.defaultUserImage = defaultOptions.userImgSrc;
 
   }

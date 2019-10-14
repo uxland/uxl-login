@@ -1,2 +1,2 @@
-import { UxlLogin } from "../src/components/uxl-login/uxl-login";
-const uxlLogin = new UxlLogin();
+import {DemoComponent} from "./demo-component/demo-component";
+document.body.append(new DemoComponent());
