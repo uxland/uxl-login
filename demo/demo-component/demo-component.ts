@@ -8,8 +8,11 @@ import { listen} from "@uxland/uxl-utilities";
 @customElement('demo-component')
 export class DemoComponent extends LitElement {
 
+  //----------- PROPERTIES
   @property()
   public selected:string = "tab1";
+
+  //----------- QUERIES
 
   @query(".login1")
   public login1: any;
@@ -23,21 +26,21 @@ export class DemoComponent extends LitElement {
   @listen("click",".tabOne")
   onClickTab1(){
     console.log("tab1");
-    this.selected="tab1";
+    this.selected = "tab1";
    }
 
    
   @listen("click",".tabTwo")
   onClickTab2(){
     console.log("tab2");
-    this.selected="tab2";
+    this.selected = "tab2";
    }
 
 
    @listen("click",".tabThree")
    onClickTab3(){
      console.log("tab3");
-     this.selected="tab3";
+     this.selected = "tab3";
     }
  
   
