@@ -1,7 +1,7 @@
 
 import { css, customElement, html, LitElement, property, query, unsafeCSS } from "lit-element";
-import styles from "./styles.scss";
-import { template } from "./template";
+import styles from "./uxl-login-styles.scss";
+import { template } from "./uxl-login-template";
 import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
 import { defaultOptions } from 'src/utilities';
 
@@ -9,22 +9,7 @@ import { defaultOptions } from 'src/utilities';
 
 export class UxlLogin extends LitElement {
 
-  static get styles() {
-    return css`
-      ${unsafeCSS(styles)}
-    `;
-  }
-
-  public render() {
- 
-    return html`
-    
-      ${template(this)}
-      
-    `;
-  }
-  
-
+//----------- PROPERTIES
   @property()
   public userName: string;
 
@@ -93,12 +78,13 @@ export class UxlLogin extends LitElement {
   public forgotPasswordText:string;
 
   @property()
-  public forgotPassHref:string;
+  public forgotPasswordHref:string;
 
   @property()
   public userImgSrc:string;
 
-  
+  //----------- QUERIES
+
   @query(".username")
   public userNameInput: any;
 
@@ -189,13 +175,13 @@ export class UxlLogin extends LitElement {
 
   public changePasswordType(){
  
-    if(this.passwordInputType==="password"){
-      this.passwordInputType="text";
-      this.showPasswordButtonText="Ocultar";
+    if(this.passwordInputType === "password"){
+      this.passwordInputType = "text";
+      this.showPasswordButtonText = "Ocultar";
 
     }else{
-      this.passwordInputType="password";
-      this.showPasswordButtonText="Ver";
+      this.passwordInputType = "password";
+      this.showPasswordButtonText = "Ver";
     }
   }
 
@@ -204,34 +190,18 @@ export class UxlLogin extends LitElement {
     this.userShowedName = this.displayName ? this.displayName : this.userName;
 
     if(this.displayName || this.userName){
-      this.hideUserInput=true;
-      this.showWelcomeMessage=true;
+      this.hideUserInput = true;
+      this.showWelcomeMessage = true;
 
     }else{     
 
-      this.hideUserInput=false;
+      this.hideUserInput = false;
     }
 
     this.defaultUserImage();
     this.showDisplayNameOrUsername();
    
 }
-
-  public myDefaultOptions(){
-
-    this.loginButtonText = defaultOptions.submitButtonText;
-    this.submitErrorMessage = defaultOptions.errorMessage;
-    this.welcomeMessage = defaultOptions.welcomeMessage;
-    this.displayName = defaultOptions.displayName;
-    this.showPasswordButtonText = defaultOptions.showPasswordButtonText;
-    this.newUserButton = defaultOptions.newUserButton;
-    this.passwordIcon = defaultOptions.passwordIcon;
-    this.userIcon = defaultOptions.userIcon;
-    this.emailPlaceholder = defaultOptions.emailPlaceholder;
-    this.passwordPlaceholder = defaultOptions.passwordPlaceholder;
-    this.passwordInputType = defaultOptions.passwordInputType;
-
-  }
 
   public defaultUserImage(){
 
@@ -257,6 +227,38 @@ export class UxlLogin extends LitElement {
 
   }
 
+  public myDefaultOptions(){
+
+    this.loginButtonText = defaultOptions.submitButtonText;
+    this.submitErrorMessage = defaultOptions.errorMessage;
+    this.welcomeMessage = defaultOptions.welcomeMessage;
+    this.displayName = defaultOptions.displayName;
+    this.showPasswordButtonText = defaultOptions.showPasswordButtonText;
+    this.newUserButton = defaultOptions.newUserButton;
+    this.passwordIcon = defaultOptions.passwordIcon;
+    this.userIcon = defaultOptions.userIcon;
+    this.emailPlaceholder = defaultOptions.emailPlaceholder;
+    this.passwordPlaceholder = defaultOptions.passwordPlaceholder;
+    this.passwordInputType = defaultOptions.passwordInputType;
+    this.forgotPasswordText = defaultOptions.forgotPasswordText;
+
+  }
+
+  static get styles() {
+    return css`
+      ${unsafeCSS(styles)}
+    `;
+  }
+
+  public render() {
+ 
+    return html`
+    
+      ${template(this)}
+      
+    `;
+  }
+  
 }
 
 
