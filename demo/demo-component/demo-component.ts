@@ -20,7 +20,6 @@ export class DemoComponent extends LitElement {
   @query(".login3")
   public login3: any;
 
-
   @listen("click",".tabOne")
   onClickTab1(){
     console.log("tab1");

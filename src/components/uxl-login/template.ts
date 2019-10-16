@@ -4,7 +4,6 @@ import { UxlLogin } from './uxl-login';
 import { iconTemplate } from "./icons/login-icons";
 import "@material/mwc-button";
 import "@material/mwc-textfield";
-import '@material/mwc-icon/mwc-icon-font.js';
 
 export const template = (props:UxlLogin) => html`
 ${iconTemplate()}
@@ -86,3 +85,5 @@ ${iconTemplate()}
 
 </div>
 `;
+
+//export const template = props => guard(props.items, () => getSkeletonTemplate(props));???
