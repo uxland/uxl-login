@@ -22,14 +22,14 @@ export const defaultOptions : UxlLoginOptions = {
     errorMessage: 'Error',
     displayName:'',
     showPasswordButtonText: 'Ver',
-    newUserButton: 'nuevo usuario',
-    submitButtonText:'entrar',
+    newUserButton: 'Nuevo usuario',
+    submitButtonText:'Entrar',
     passwordIcon:'',
     userIcon:'',
-    forgotPasswordText:'recordar contraseña',
+    forgotPasswordText:'Recordar contraseña',
     userImgSrc:'',
-    emailPlaceholder:'email',
-    passwordPlaceholder:'contraseña',
+    emailPlaceholder:'Email',
+    passwordPlaceholder:'Contraseña',
     passwordInputType:'password'
 }
 
