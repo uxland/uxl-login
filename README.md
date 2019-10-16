@@ -43,6 +43,7 @@ import "@uxland/uxl-login";
   `forgotPasswordText`: Forgot password link text
   
   #Buttons
+  
   `submitButtonText`: "Submit" button text
 
   `showPasswordButtonText`: "Show password" button text
@@ -50,19 +51,23 @@ import "@uxland/uxl-login";
   `newUserButton`: "New User" button text
 
   #Messages
+  
   `welcomeMessage`: Welcome text, message + `userShowedName`
 
   `errorMessage`: Error message if can't login
 
   #Icons
+  
   `passwordIcon`: Password icon inside password input
   
   `userIcon`: User icon inside user input
 
-  #URL
+  #HREF
+  
   `forgotPassHref` Forgot password HREF
 
   #Images
+  
   `userImgSrc`: User's image if has, if not, default image is shown
 
   
