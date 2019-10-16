@@ -4,7 +4,6 @@ import { UxlLogin } from './uxl-login';
 import { iconTemplate } from "./icons/login-icons";
 import "@material/mwc-button";
 import "@material/mwc-textfield";
-import '@material/mwc-icon/mwc-icon-font.js';
 
 export const template = (props:UxlLogin) => html`
 ${iconTemplate()}
@@ -12,39 +11,41 @@ ${iconTemplate()}
 
   <div class="login" part="login">
 
-    <img class="userImg" src="${props.userImgSrc}"part="login__userImage">
+    <img class="userImg" src="${props.userImgSrc}" part="login__userImage">
     
-      <div class="submit-msg" part="login__submitMsg"
-      ?hidden="">
-      ${props.submitMessage} </div>  
+      <div class="submit-msg" part="login__submitMsg">
+      ${props.welcomeMessage} </div>  
       </div>
 
 
-    <form action="" method="" class="login-form">
+    <form class="login-form">
       <div class="inputs__username" part="login__inputUsername">        
           <mwc-textfield     
               filled  
               icon="${props.userIcon}"
-              placeholder="${props.emailPlaceholder}"
+              label="${props.emailPlaceholder}"
               class="username"
               ?hidden="${props.hideUserInput}"
               autofocus
               autocapitalize="none" 
               type="${props.userInputType}"      
-              pattern="${props.userInputPattern}">
-              part="login__textfield"
+              pattern="${props.userInputPattern}"
+              part="login__textfield">
           </mwc-textfield>
       </div>
 
+        
+
       <div class="mdc-text-field--with-leading-icon" part="login__inputPassword">
 
-        <mwc-textfield 
-            filled
+        <mwc-textfield      
+            
             class="password" 
-            placeholder="${props.passwordPlaceholder}"
-            .type="${props.passwordInputType}"
-            icon="${props.passwordIcon}">   
-            part="login__textfield"     
+            label="${props.passwordPlaceholder}"
+            type="${props.passwordInputType}"
+            icon="${props.passwordIcon}"   
+            part="login__textfield"
+            iconTrailing="">     
                            
         </mwc-textfield>
 
@@ -80,9 +81,9 @@ ${iconTemplate()}
 
     </form>
 
-  
-
   </div>
 
 </div>
 `;
+
+//export const template = props => guard(props.items, () => getSkeletonTemplate(props));???

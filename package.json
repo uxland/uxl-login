@@ -15,6 +15,7 @@
     "cjs": true
   },
   "dependencies": {
+    "@material/icon-button": "^3.2.0",
     "@material/mwc-button": "^0.9.1",
     "@material/mwc-icon": "^0.9.1",
     "@material/mwc-tab": "^0.10.0",

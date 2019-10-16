@@ -1,7 +1,7 @@
 import { css, customElement, html, LitElement, property, query, unsafeCSS } from "lit-element";
 import styles from './styles.scss';
 import { template } from './template';
-import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
+import { listen} from "@uxland/uxl-utilities";
 
 
 
@@ -9,7 +9,7 @@ import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
 export class DemoComponent extends LitElement {
 
   @property()
-  public selected:string;
+  public selected:string = "tab1";
 
   @query(".login1")
   public login1: any;
@@ -20,23 +20,26 @@ export class DemoComponent extends LitElement {
   @query(".login3")
   public login3: any;
 
+  @listen("click",".tabOne")
+  onClickTab1(){
+    console.log("tab1");
+    this.selected="tab1";
+   }
+
+   
+  @listen("click",".tabTwo")
+  onClickTab2(){
+    console.log("tab2");
+    this.selected="tab2";
+   }
 
 
-  // @listen("click",".tabOne")
-  // onClickTab1(){
-  // console.log("tab1");
-  // this.login1.removeAttribute("hidden");
-  // this.login2.setAttribute("hidden",true);
-  // }
-
-  // @listen("click",".tabTwo")
-  // onClickTab2(){
-  // console.log("tab2");
-  // this.login1.setAttribute("hidden",true);
-  // this.login2.removeAttribute("hidden");
-
-  // }
-
+   @listen("click",".tabThree")
+   onClickTab3(){
+     console.log("tab3");
+     this.selected="tab3";
+    }
+ 
   
   render() {
     return html`
