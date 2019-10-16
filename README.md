@@ -59,7 +59,7 @@ import "@uxland/uxl-login";
   `userIcon`: User icon inside user input
 
   /URL
-  `forgotPassHref` Forgot password HREF
+  `forgotPasswordHref` Forgot password HREF
 
   /Images
   `userImgSrc`: User's image if has, if not, default image is shown

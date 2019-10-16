@@ -1,7 +1,7 @@
 
 import { css, customElement, html, LitElement, property, query, unsafeCSS } from "lit-element";
-import styles from "./styles.scss";
-import { template } from "./template";
+import styles from "./uxl-login-styles.scss";
+import { template } from "./uxl-login-template";
 import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
 import { defaultOptions } from 'src/utilities';
 
@@ -78,7 +78,7 @@ export class UxlLogin extends LitElement {
   public forgotPasswordText:string;
 
   @property()
-  public forgotPassHref:string;
+  public forgotPasswordHref:string;
 
   @property()
   public userImgSrc:string;
@@ -240,6 +240,7 @@ export class UxlLogin extends LitElement {
     this.emailPlaceholder = defaultOptions.emailPlaceholder;
     this.passwordPlaceholder = defaultOptions.passwordPlaceholder;
     this.passwordInputType = defaultOptions.passwordInputType;
+    this.forgotPasswordText = defaultOptions.forgotPasswordText;
 
   }
 

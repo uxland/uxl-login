@@ -10,15 +10,15 @@ export const template = (props: DemoComponent) => html`
   
 <mwc-tab-bar>
    
-    <mwc-tab class="tabOne" label="one">
+    <mwc-tab class="tabOne" label="Login 1">
     
     </mwc-tab>
         
-    <mwc-tab class="tabTwo" label="two">
+    <mwc-tab class="tabTwo" label="Login 2">
     
     </mwc-tab>
 
-    <mwc-tab class="tabThree" label="three">
+    <mwc-tab class="tabThree" label="Login 3">
     
     </mwc-tab>
     
