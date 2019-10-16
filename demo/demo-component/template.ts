@@ -6,25 +6,41 @@ import { DemoComponent } from './demo-component';
 
 
 export const template = (props: DemoComponent) => html`
-
-
-<uxl-content-switcher attrForSelected="name" selected="${props.selected}">
-    <mwc-tab-bar>
+  
+<mwc-tab-bar>
    
-        <mwc-tab class="tabOne" .name="" label="one">
+    <mwc-tab class="tabOne" label="one">
+    
+    </mwc-tab>
         
-        </mwc-tab>
-            
-        <mwc-tab class="tabTwo" .name="" label="two">
-        
-        </mwc-tab>
-
-        <mwc-tab class="tabThree" .name="" label="three">
+    <mwc-tab class="tabTwo" label="two">
     
     </mwc-tab>
 
+    <mwc-tab class="tabThree" label="three">
     
+    </mwc-tab>
+    
+</mwc-tab-bar>
+    
+<uxl-content-switcher attrForSelected="name" selected="${props.selected}">
+
+<div name="tab1">
+    <p>tab1</p>
+</div>
+
+<div name="tab2">
+    <p>tab2</p>
+</div>
+
+<div name="tab3">
+    <p>tab3</p>
+
+</div>
+
 </uxl-content-switcher>
+
+<uxl-login></uxl-login>
 
 
 `;

@@ -1,8 +1,7 @@
 import { StringifyOptions } from 'querystring';
 
 export interface UxlLoginOptions{
-    usernameLabel: string;
-    submitMessage: string;
+    welcomeMessage: string;
     errorMessage: string;
     displayName: string;
     showPasswordButtonText: string;
@@ -14,12 +13,12 @@ export interface UxlLoginOptions{
     userImgSrc:string;
     emailPlaceholder:string;
     passwordPlaceholder:any;
+    passwordInputType:string;
 
 }
 
 export const defaultOptions : UxlLoginOptions = {
-    usernameLabel : 'usuario',
-    submitMessage: 'Bienvenid@',
+    welcomeMessage: 'Bienvenid@',
     errorMessage: 'Error',
     displayName:'',
     showPasswordButtonText: 'Ver',
@@ -30,8 +29,8 @@ export const defaultOptions : UxlLoginOptions = {
     forgotPasswordText:'recordar contraseña',
     userImgSrc:'',
     emailPlaceholder:'email',
-    passwordPlaceholder:'contraseña'
-
+    passwordPlaceholder:'contraseña',
+    passwordInputType:'password'
 }
 
 
