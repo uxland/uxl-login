@@ -62,7 +62,8 @@ import "@uxland/uxl-login";
   
   `userIcon`: User icon inside user input
 
-  /URL
+  #HREF
+  
   `forgotPasswordHref` Forgot password HREF
 
 
