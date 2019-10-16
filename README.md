@@ -24,7 +24,8 @@ import "@uxland/uxl-login";
 
 ### Properties
   
-  /Texts
+  #Texts
+  
   `userName`: User's name
 
   `displayName`: Complete user's name
