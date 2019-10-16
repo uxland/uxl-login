@@ -24,7 +24,8 @@ import "@uxland/uxl-login";
 
 ### Properties
   
-  /Texts
+  #Texts
+  
   `userName`: User's name
 
   `displayName`: Complete user's name
@@ -41,19 +42,22 @@ import "@uxland/uxl-login";
 
   `forgotPasswordText`: Forgot password link text
   
-  /Buttons
+  #Buttons
+  
   `submitButtonText`: "Submit" button text
 
   `showPasswordButtonText`: "Show password" button text
 
   `newUserButton`: "New User" button text
 
-  /Messages
+  #Messages
+  
   `welcomeMessage`: Welcome text, message + `userShowedName`
 
   `errorMessage`: Error message if can't login
 
-  /Icons
+  #Icons
+  
   `passwordIcon`: Password icon inside password input
   
   `userIcon`: User icon inside user input
@@ -61,7 +65,9 @@ import "@uxland/uxl-login";
   /URL
   `forgotPasswordHref` Forgot password HREF
 
-  /Images
+
+  #Images
+  
   `userImgSrc`: User's image if has, if not, default image is shown
 
   
