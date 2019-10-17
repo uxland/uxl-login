@@ -64,7 +64,7 @@ import "@uxland/uxl-login";
 
   #HREF
   
-  `forgotPassHref` Forgot password HREF
+  `forgotPasswordHref` Forgot password HREF
 
   #Images
   
