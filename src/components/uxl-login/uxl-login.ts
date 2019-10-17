@@ -11,22 +11,19 @@ export class UxlLogin extends LitElement {
 
 //----------- PROPERTIES
   @property()
-  public userName: string;
+  public userName: string= defaultOptions.userName;
 
   @property()
-  public emailPlaceholder: string;
+  public emailPlaceholder: string = defaultOptions.emailPlaceholder;
 
   @property()
-  public passwordPlaceholder: any;
+  public passwordPlaceholder: any = defaultOptions.passwordPlaceholder;
 
   @property()
-  public userNameLabel: string = null;
+  public displayName: string = defaultOptions.displayName;
 
   @property()
-  public displayName: string = "";
-
-  @property()
-  public userShowedName: string ="";
+  public userShowedName: string;
 
   @property()
   public canSubmit: boolean;
@@ -48,19 +45,19 @@ export class UxlLogin extends LitElement {
   public passwordInputType: any;
 
   @property()
-  public loginButtonText: string;
+  public loginButtonText: string = defaultOptions.submitButtonText;
 
   @property()
-  public showPasswordButtonText: string = "Ver";
+  public showPasswordButtonText: string = defaultOptions.showPasswordButtonText;
 
   @property()
-  public welcomeMessage: string;
+  public welcomeMessage: string = defaultOptions.welcomeMessage;
 
   @property()
-  public submitErrorMessage: string;
+  public submitErrorMessage: string = defaultOptions.errorMessage;
 
   @property()
-  public newUserButton: string;
+  public newUserButton: string = defaultOptions.newUserButton;
 
   @property()
   public passwordIcon: string="";
@@ -75,7 +72,7 @@ export class UxlLogin extends LitElement {
   public showWelcomeMessage: boolean=false;
 
   @property()
-  public forgotPasswordText:string;
+  public forgotPasswordText:string = defaultOptions.forgotPasswordText;
 
   @property()
   public forgotPasswordHref:string;
@@ -101,7 +98,7 @@ export class UxlLogin extends LitElement {
   // public newUserButton: any;
 
   firstUpdated(){
-    this.myDefaultOptions();
+    //this.myDefaultOptions();
     this.handleShowUsername();
   }
 

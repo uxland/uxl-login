@@ -22,6 +22,10 @@
             height:100%;
             width:100%;
 
+            mwc-textfield[hidden]{
+                display:none;
+            }
+
             mwc-button {
                 --mdc-theme-primary:var(--uxl-login-primary-color, #00897B);
                 padding: 2px;

@@ -4,6 +4,7 @@ import { UxlLogin } from './uxl-login';
 import { iconTemplate } from "./icons/login-icons";
 import "@material/mwc-button";
 import "@material/mwc-textfield";
+import '@material/mwc-icon/mwc-icon-font.js';
 
 export const template = (props:UxlLogin) => html`
 ${iconTemplate()}
@@ -34,8 +35,7 @@ ${iconTemplate()}
           </mwc-textfield>
       </div>
 
-        
-
+      
       <div class="mdc-text-field--with-leading-icon" part="login__inputPassword">
 
         <mwc-textfield      
@@ -45,8 +45,8 @@ ${iconTemplate()}
             type="${props.passwordInputType}"
             icon="${props.passwordIcon}"   
             part="login__textfield"
-            iconTrailing="">     
-                           
+            iconTrailing="visibility">    
+                                
         </mwc-textfield>
 
       </div>   
@@ -85,5 +85,3 @@ ${iconTemplate()}
 
 </div>
 `;
-
-//export const template = props => guard(props.items, () => getSkeletonTemplate(props));???

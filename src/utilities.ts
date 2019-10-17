@@ -1,6 +1,7 @@
 import { StringifyOptions } from 'querystring';
 
 export interface UxlLoginOptions{
+    userName: string;
     welcomeMessage: string;
     errorMessage: string;
     displayName: string;
@@ -18,6 +19,7 @@ export interface UxlLoginOptions{
 }
 
 export const defaultOptions : UxlLoginOptions = {
+    userName:'',
     welcomeMessage: 'Bienvenid@',
     errorMessage: 'Error',
     displayName:'',
