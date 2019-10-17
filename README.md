@@ -66,7 +66,6 @@ import "@uxland/uxl-login";
   
   `forgotPasswordHref` Forgot password HREF
 
-
   #Images
   
   `userImgSrc`: User's image if has, if not, default image is shown
