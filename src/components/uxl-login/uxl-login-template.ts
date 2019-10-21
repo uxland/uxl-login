@@ -8,7 +8,7 @@ import '@material/mwc-icon/mwc-icon-font.js';
 
 export const template = (props:UxlLogin) => html`
 ${iconTemplate()}
-<div class="content">
+<div class="content" part="content">
 
   <div class="login" part="login">
 
@@ -38,14 +38,14 @@ ${iconTemplate()}
       
       <div class="mdc-text-field--with-leading-icon" part="login__inputPassword">
 
-        <mwc-textfield      
-            
+        <mwc-textfield           
             class="password" 
             label="${props.passwordPlaceholder}"
             type="${props.passwordInputType}"
             icon="${props.passwordIcon}"   
             part="login__textfield"
-            iconTrailing="visibility">    
+            iconTrailing="visibility"
+          >    
                                 
         </mwc-textfield>
 

@@ -7,7 +7,6 @@ import "@uxland/uxl-content-switcher";
 
 export const template = (props: DemoComponent) => html`
   
-  
 <mwc-tab-bar>
    
     <mwc-tab class="tabOne" label="Login 1">
@@ -18,29 +17,42 @@ export const template = (props: DemoComponent) => html`
     
     </mwc-tab>
 
-    <mwc-tab class="tabThree" label="Login 3">
+    <!--<mwc-tab class="tabThree" label="Login 3">
     
-    </mwc-tab>
+    </mwc-tab>-->
     
 </mwc-tab-bar>
     
 <uxl-content-switcher attrForSelected="name" selected="${props.selected}">
 
 <div name="tab1">
-    <p>tab1</p>
-    <uxl-login 
-        displayName="prueba">
+
+    <uxl-login login1
+        userName="Usuario 1">
+
+        <style>
+            
+        uxl-login::part(content){
+            background-color:grey;
+        }     
+
+        </style>
+        
     </uxl-login>
+
 </div>
 
+
 <div name="tab2">
-    <p>tab2</p>
+
     <uxl-login></uxl-login>
+
 </div>
 
 <div name="tab3">
-    <p>tab3</p>
+
     <uxl-login></uxl-login>
+
 </div>
 
 </uxl-content-switcher>

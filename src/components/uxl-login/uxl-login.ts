@@ -42,7 +42,7 @@ export class UxlLogin extends LitElement {
   public canShow: boolean = false;
 
   @property()
-  public passwordInputType: any;
+  public passwordInputType: any = "password"; 
 
   @property()
   public loginButtonText: string = defaultOptions.submitButtonText;
@@ -98,7 +98,6 @@ export class UxlLogin extends LitElement {
   // public newUserButton: any;
 
   firstUpdated(){
-    //this.myDefaultOptions();
     this.handleShowUsername();
   }
 
@@ -109,8 +108,10 @@ export class UxlLogin extends LitElement {
 
         let event = new CustomEvent('my-event', {
           detail: {
-            user: this.userNameInput.value, password: this.passwordInput.value
-            
+            user: this.userNameInput.value, 
+            password: this.passwordInput.value,
+            username: this.userName,
+            displayName: this.displayName
           }
         });
         this.dispatchEvent(event);
@@ -118,6 +119,7 @@ export class UxlLogin extends LitElement {
     }else{
     
      this.welcomeMessage = this.submitErrorMessage;
+     
     }
   }
 

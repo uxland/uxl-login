@@ -25,21 +25,18 @@ export class DemoComponent extends LitElement {
 
   @listen("click",".tabOne")
   onClickTab1(){
-    console.log("tab1");
     this.selected = "tab1";
    }
 
    
   @listen("click",".tabTwo")
   onClickTab2(){
-    console.log("tab2");
     this.selected = "tab2";
    }
 
 
    @listen("click",".tabThree")
    onClickTab3(){
-     console.log("tab3");
      this.selected = "tab3";
     }
  

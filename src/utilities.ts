@@ -14,7 +14,7 @@ export interface UxlLoginOptions{
     userImgSrc:string;
     emailPlaceholder:string;
     passwordPlaceholder:any;
-    passwordInputType:string;
+   
 
 }
 
@@ -31,8 +31,7 @@ export const defaultOptions : UxlLoginOptions = {
     forgotPasswordText:'Recordar contraseña',
     userImgSrc:'',
     emailPlaceholder:'Email',
-    passwordPlaceholder:'Contraseña',
-    passwordInputType:'password'
+    passwordPlaceholder:'Contraseña'
 }
 
 
