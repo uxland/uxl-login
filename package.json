@@ -1,6 +1,6 @@
 {
   "name": "@uxland/uxl-login",
-  "version": "0.0.1-development",
+  "version": "0.0.0-development",
   "description": "UXLand - Login component",
   "main": "lib/index.js",
   "module": "es/index.js",
