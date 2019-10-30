@@ -106,7 +106,7 @@ export class UxlLogin extends LitElement {
 
     if(this.canSubmit){
 
-        let event = new CustomEvent('my-event', {
+        let userInfo = new CustomEvent('my-event', {
           detail: {
             user: this.userNameInput.value, 
             password: this.passwordInput.value,
@@ -114,12 +114,12 @@ export class UxlLogin extends LitElement {
             displayName: this.displayName
           }
         });
-        this.dispatchEvent(event);
+        this.dispatchEvent(userInfo);
       
     }else{
     
      this.welcomeMessage = this.submitErrorMessage;
-     
+
     }
   }
 
@@ -238,7 +238,6 @@ export class UxlLogin extends LitElement {
     this.userIcon = defaultOptions.userIcon;
     this.emailPlaceholder = defaultOptions.emailPlaceholder;
     this.passwordPlaceholder = defaultOptions.passwordPlaceholder;
-    this.passwordInputType = defaultOptions.passwordInputType;
     this.forgotPasswordText = defaultOptions.forgotPasswordText;
 
   }

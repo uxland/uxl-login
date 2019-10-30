@@ -9,11 +9,11 @@ export const template = (props: DemoComponent) => html`
   
 <mwc-tab-bar>
    
-    <mwc-tab class="tabOne" label="Login 1">
+    <mwc-tab class="tabOne" label="Con info usuario">
     
     </mwc-tab>
         
-    <mwc-tab class="tabTwo" label="Login 2">
+    <mwc-tab class="tabTwo" label="Sin info usuario">
     
     </mwc-tab>
 
@@ -27,13 +27,14 @@ export const template = (props: DemoComponent) => html`
 
 <div name="tab1">
 
-    <uxl-login login1
-        userName="Usuario 1">
+    <uxl-login class= login1
+        userName="Usuario 1"
+        userImgSrc= "https://images.pexels.com/photos/1435612/pexels-photo-1435612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" >
 
         <style>
             
-        uxl-login::part(content){
-            background-color:grey;
+        uxl-login.login1::part(content){
+            background-color:#E0F2F1;
         }     
 
         </style>
@@ -45,7 +46,37 @@ export const template = (props: DemoComponent) => html`
 
 <div name="tab2">
 
-    <uxl-login></uxl-login>
+    <uxl-login class= login2>
+    <style>
+      
+        uxl-login.login2::part(content){
+            background-color:#e8eaf6;  
+            font-family: "Times New Roman", Times, serif;
+              
+        } 
+
+        uxl-login.login2::part(login__btn){
+            --mdc-theme-primary:var(--uxl-login-primary-color, orange);
+              
+        } 
+
+        uxl-login.login2::part(login__textfield){
+            --mdc-theme-primary:var(--uxl-login-primary-color, orange);
+              
+        }
+
+         
+           
+        
+
+        
+        
+     
+    
+    </style>
+    
+    
+    </uxl-login>
 
 </div>
 

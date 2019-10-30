@@ -14,10 +14,10 @@ ${iconTemplate()}
 
     <img class="userImg" src="${props.userImgSrc}" part="login__userImage">
     
-      <div class="submit-msg" part="login__submitMsg">
+      <div class="submit-msg" part="login__submitMsg"
+      ?hidden="${!props.hideUserInput}">
       ${props.welcomeMessage} </div>  
       </div>
-
 
     <form class="login-form">
       <div class="inputs__username" part="login__inputUsername">        
@@ -51,15 +51,7 @@ ${iconTemplate()}
 
       </div>   
 
-      <mwc-button 
-      raised
-      class="btn-showPassword" 
-      .disabled="${!props.canShow}"
-      part="login__btn">
-      ${props.showPasswordButtonText}
-      </mwc-button>   
-      
-
+ 
       <div class="container">
         <mwc-button 
             raised
@@ -69,18 +61,27 @@ ${iconTemplate()}
             ${props.loginButtonText}
         </mwc-button>
 
-        <mwc-button 
+        <mwc-button            
             raised
             class="btn-newUser"
-            part="login__btn">
+            part="login__btn"
+            ?hidden="${props.hideUserInput}">
             ${props.newUserButton} 
         </mwc-button>
+
+        <mwc-button 
+            raised
+            class="btn-showPassword" 
+            .disabled="${!props.canShow}"
+            part="login__btn">
+            ${props.showPasswordButtonText}
+        </mwc-button> 
+
       </div>
     
       <a class="forgotPass" href="" part="login__forgotPass">${props.forgotPasswordText}</a>
 
-    </form>
-
+    </form> 
   </div>
 
 </div>
