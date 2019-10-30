@@ -83,7 +83,7 @@
     "dist:copy-resources:lib": "cpx \"src/**/*.{gif,png,jpg,jpeg,ico,pdf,svg,scss,d.ts,css,ttf,woff,woff2,css.d.ts}\" ./lib",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release",
-    "semantic-release:local": "npm run dist && semantic-release --no-ci --debug --dry-run",
+    "semantic-release:local": "npm run dist && semantic-release --no-ci --debug",
     "postsemantic-release:local": "git checkout -- package*",
     "polymer:serve": "polymer serve",
     "serve": "webpack-dev-server --hot --inline --progress"
