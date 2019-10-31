@@ -3,7 +3,7 @@ import { css, customElement, html, LitElement, property, query, unsafeCSS } from
 import styles from "./uxl-login-styles.scss";
 import { template } from "./uxl-login-template";
 import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
-import { defaultOptions } from 'src/utilities';
+import { defaultOptions } from '../../utilities';
 
 @customElement("uxl-login")
 
