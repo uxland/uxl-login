@@ -9,7 +9,7 @@ import '@material/mwc-icon/mwc-icon-font.js';
 export const template = (props:UxlLogin) => html`${iconTemplate()}
 <div class="content" part="content">
 	<div class="login" part="login">
-		<img class="userImg" src="${props.userImgSrc}" part="login__userImage">
+		<img class="user__image" src="${props.userImgSrc}" part="login__userImage">
 		<div class="submit-msg" part="login__submitMsg"
 			 ?hidden="${!props.hideUserInput}">
 			${props.welcomeMessage}

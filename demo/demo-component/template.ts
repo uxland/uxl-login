@@ -9,7 +9,7 @@ export const template = (props: DemoComponent) => html`
 <mwc-tab-bar>
 	<mwc-tab class="tabOne" label="Con info usuario"></mwc-tab>
 	<mwc-tab class="tabTwo" label="Sin info usuario"></mwc-tab>
-	<!--<mwc-tab class="tabThree" label="Login 3"></mwc-tab>-->
+	<mwc-tab class="tabThree" label="Login 3"></mwc-tab>
 </mwc-tab-bar>
 <uxl-content-switcher attrForSelected="name" selected="${props.selected}">
 	
