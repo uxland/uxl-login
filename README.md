@@ -74,12 +74,27 @@ import "@uxland/uxl-login";
   
 
 ### Styling
+
+##### Mixins
+
 The following custom properties and mixins are available for styling:
 
 | Custom property | Description | Default |
 | --- | --- | --- |
 | `--uxl-login-primary-color` | Buttons and textfield color | `#00897B` |
 | `--uxl-login-background-color` | Component background color | `#E0F2F1` |
+
+##### Stylable Shadow Parts
+
+The following styleable part's of the element `confirm-component` are available for styling:
+
+| Shadow tree part                       | Description                             | Style outside of shadow tree             |
+| -------------------------------------- | --------------------------------------- | ---------------------------------------- |
+| `<paper-dialog part="dialog">...`      | The confirm dialog parent element       | `confirm-component::part(dialog) {...}`  |
+| `<div id="header" part="header">...`   | The header of the confirm dialog        | `confirm-component::part(header) {...}`  |
+| `<h2 part="title">...`                 | The title of the confirm dialog         | `confirm-component::part(title) {...}`   |
+| `<div id="content" part="content">...` | The content of the confirm dialog       | `confirm-component::part(content) {...}` |
+| `<div id="actions" part="actions">...` | The action footer of the confirm dialog | `confirm-component::part(actions) {...}` |
 
 
 ### Events

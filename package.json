@@ -25,6 +25,7 @@
     "@polymer/paper-icon-button": "^3.0.2",
     "@polymer/polymer": "^3.0.0",
     "@uxland/uxl-content-switcher": "^3.0.3",
+    "@uxland/uxl-style-utilities": "^1.0.15",
     "@uxland/uxl-tile-view": "^3.0.5",
     "@uxland/uxl-utilities": "^3.3.7",
     "lit-element": "^2.2.1",

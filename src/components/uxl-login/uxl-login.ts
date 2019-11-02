@@ -1,4 +1,3 @@
-
 import { css, customElement, html, LitElement, property, query, unsafeCSS } from "lit-element";
 import styles from "./uxl-login-styles.scss";
 import { template } from "./uxl-login-template";
@@ -29,7 +28,7 @@ export class UxlLogin extends LitElement {
   public canSubmit: boolean;
 
   @property()
-  public userInputPattern: string; 
+  public userInputPattern: string;
   //email --> [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$
   // text --> [A-Za-z]
 
@@ -42,7 +41,7 @@ export class UxlLogin extends LitElement {
   public canShow: boolean = false;
 
   @property()
-  public passwordInputType: any = "password"; 
+  public passwordInputType: any = "password";
 
   @property()
   public loginButtonText: string = defaultOptions.submitButtonText;
@@ -108,7 +107,7 @@ export class UxlLogin extends LitElement {
 
         let userInfo = new CustomEvent('my-event', {
           detail: {
-            user: this.userNameInput.value, 
+            user: this.userNameInput.value,
             password: this.passwordInput.value,
             username: this.userName,
             displayName: this.displayName
@@ -125,12 +124,12 @@ export class UxlLogin extends LitElement {
 
   @listen("click",".btn-newUser")
   onClickNewUser(){
-   //new user  
+   //new user
   }
 
   @listen("click",".btn-showPassword")
   onClickPass(){
-    this.changePasswordType();  
+    this.changePasswordType();
   }
 
   @listen("keyup", ".password")
@@ -141,7 +140,7 @@ export class UxlLogin extends LitElement {
 
   @listen("keyup",".username")
   public onKeyUpUser(){
-    this.userCanSubmit(); 
+    this.userCanSubmit();
   }
 
   public userCanSubmit(){
@@ -152,24 +151,24 @@ export class UxlLogin extends LitElement {
   }
 
   public showPassword(){
-    this.canShow = this.passwordInput 
+    this.canShow = this.passwordInput
                    && isNotNullNeitherEmpty(this.passwordInput.value);
   }
 
   public validUsername(){
 
     if(this.displayName || this.userName){
-      this.canSubmit = this.passwordInput 
+      this.canSubmit = this.passwordInput
                       && isNotNullNeitherEmpty(this.passwordInput.value);
   }
 }
 
   public validPassword(){
-        
-      this.canSubmit = this.userNameInput 
-                      && isNotNullNeitherEmpty(this.userNameInput.value) 
-                      && this.passwordInput 
-                      && isNotNullNeitherEmpty(this.passwordInput.value);                  
+      
+      this.canSubmit = this.userNameInput
+                      && isNotNullNeitherEmpty(this.userNameInput.value)
+                      && this.passwordInput
+                      && isNotNullNeitherEmpty(this.passwordInput.value);
   }
 
   public changePasswordType(){
@@ -192,7 +191,7 @@ export class UxlLogin extends LitElement {
       this.hideUserInput = true;
       this.showWelcomeMessage = true;
 
-    }else{     
+    }else{
 
       this.hideUserInput = false;
     }
@@ -212,16 +211,16 @@ export class UxlLogin extends LitElement {
   public showDisplayNameOrUsername(){
 
     if(this.displayName){
-          
-      this.welcomeMessage += " " + this.displayName + "!"; 
+      
+      this.welcomeMessage += " " + this.displayName + "!";
       
     }else if(this.userName){
 
-      this.welcomeMessage += " " + this.userName + "!"; 
+      this.welcomeMessage += " " + this.userName + "!";
 
-    }else{    
+    }else{
     
-      this.welcomeMessage += " " + this.userNameInput.value + "!"; 
+      this.welcomeMessage += " " + this.userNameInput.value + "!";
     }
 
   }
@@ -243,9 +242,7 @@ export class UxlLogin extends LitElement {
   }
 
   static get styles() {
-    return css`
-      ${unsafeCSS(styles)}
-    `;
+    return css`${unsafeCSS(styles)}`;
   }
 
   public render() {
