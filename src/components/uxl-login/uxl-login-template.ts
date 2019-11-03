@@ -1,12 +1,12 @@
-import { html } from "lit-element";
+import {html} from "lit-element";
 //import { classMap } from "lit-html";
-import { UxlLogin } from './uxl-login';
-import { iconTemplate } from "./icons/login-icons";
+import {UxlLogin} from './uxl-login';
+import {iconTemplate} from "./icons/login-icons";
 import "@material/mwc-button";
 import "@material/mwc-textfield";
 import '@material/mwc-icon/mwc-icon-font.js';
 
-export const template = (props:UxlLogin) => html`${iconTemplate()}
+export const template = (props: UxlLogin) => html`${iconTemplate()}
 <div class="content" part="content">
 	<div class="login" part="login">
 		<img class="user__image" src="${props.userImgSrc}" part="login__userImage">
@@ -18,7 +18,8 @@ export const template = (props:UxlLogin) => html`${iconTemplate()}
 	<form class="login-form">
 		<div class="inputs__username" part="login__inputUsername">
 			<mwc-textfield
-					filled
+					outlined
+					full-width
 					icon="${props.userIcon}"
 					label="${props.emailPlaceholder}"
 					class="username"
@@ -32,6 +33,8 @@ export const template = (props:UxlLogin) => html`${iconTemplate()}
 		</div>
 		<div class="mdc-text-field--with-leading-icon" part="login__inputPassword">
 			<mwc-textfield
+					outlined
+					full-width
 					class="password"
 					label="${props.passwordPlaceholder}"
 					type="${props.passwordInputType}"

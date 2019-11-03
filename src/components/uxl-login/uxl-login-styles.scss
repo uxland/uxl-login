@@ -1,6 +1,6 @@
 @import '~@uxland/uxl-style-utilities/src/flex-layout-styles';
 @import '~@uxland/uxl-style-utilities/src/uxl-units-styles';
-@import 'variables&mixins';
+@import 'variables';
 
 :host {
   @include layout;
@@ -22,6 +22,7 @@
     @include layout-vertical;
     @include layout-start-justified;
     @include layout-center;
+    padding: 0 10px;
     margin-bottom: 2rem;
 
     .user__image {
@@ -35,31 +36,11 @@
     @include layout-flex;
     @include layout-vertical;
     @include layout-start-justified;
-    @include layout-center;
+    @include layout-self-stretch;
 
-    mwc-textfield[hidden] {
-      display: none;
-    }
-
-    mwc-button[hidden] {
-      display: none;
-    }
-
-    mwc-button {
-      --mdc-theme-primary: var(--uxl-login-primary-color, #00897B);
-      padding: 2px;
-    }
-
-    .container {
-      @include layout-flex;
+    .inputs__username, .mdc-text-field--with-leading-icon {
       @include layout-vertical;
       @include layout-self-stretch;
-      color: red;
-    }
-
-    .forgotPass {
-      text-decoration: none;
-      color: #616161;
     }
 
     .username, .password {
@@ -67,8 +48,35 @@
       --mdc-theme-primary: #00897B;
     }
 
+    mwc-textfield[hidden] {
+      display: none;
+    }
+
+    .container {
+      @include layout-flex;
+      @include layout-vertical;
+      @include layout-self-stretch;
+      padding: 0 10px;
+      margin-top: 2rem;
+
+      mwc-button {
+        --mdc-theme-primary: var(--uxl-login-primary-color, #00897B);
+        height: 56px;
+        margin-bottom: 8px;
+      }
+
+      button {
+        height: 56px !important;
+      }
+
+      mwc-button[hidden] {
+        display: none;
+      }
+    }
+
     .forgotPass {
-      margin-top: 40px;
+      text-decoration: none;
+      color: #616161;
     }
   }
 

@@ -1,6 +1,8 @@
 $uxl-login-primary-color: #00897B;
 $uxl-login-background-color: white;
-$mdc-button-height: 50px;
+$mdc-button-minimum-height: 50px !default;
+
+//mdc-button-height(50px);
 
 @mixin fadein {
 	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
