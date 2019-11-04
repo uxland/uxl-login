@@ -6,19 +6,22 @@
   @include layout;
   @include layout-center;
   background-color: var(--uxl-login-background-color, white);
+  padding: var(--uxl-login-padding, 32px);
+  box-sizing: border-box;
   width: 100%;
   font-family: 'Roboto', sans-serif;
 }
 
 .content {
+  min-height: 1px;
+  height: 100%;
   @include layout-flex;
   @include layout-vertical;
-  @include layout-start-justified;
+  @include layout-justified;
   @include layout-center;
   padding: var(--uxl-login-content-padding, 0 30%);
 
   .login {
-    @include layout-flex;
     @include layout-vertical;
     @include layout-start-justified;
     @include layout-center;
@@ -33,7 +36,6 @@
   }
 
   .login-form {
-    @include layout-flex;
     @include layout-vertical;
     @include layout-start-justified;
     @include layout-self-stretch;

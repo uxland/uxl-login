@@ -69,6 +69,7 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}
 		</div>
 		<a class="forgotPass" href="" part="login__forgotPass">${props.forgotPasswordText}</a>
 	</form>
+	<footer>Texto Footer</footer>
 </div>
 </div>
 `;
