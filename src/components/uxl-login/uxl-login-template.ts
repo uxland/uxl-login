@@ -1,10 +1,11 @@
-import {html} from "lit-element";
+import { html } from "lit-element";
 //import { classMap } from "lit-html";
-import {UxlLogin} from './uxl-login';
-import {iconTemplate} from "./icons/login-icons";
+import { UxlLogin } from "./uxl-login";
+import { iconTemplate } from "./icons/login-icons";
 import "@material/mwc-button";
 import "@material/mwc-textfield";
-import '@material/mwc-icon/mwc-icon-font.js';
+import "@material/mwc-icon/mwc-icon-font.js";
+import { nothing } from 'lit-html';
 
 export const template = (props: UxlLogin) => html`${iconTemplate()}
 <div class="content" part="content">
@@ -21,13 +22,12 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}
 					outlined
 					full-width
 					icon="${props.userIcon}"
-					label="${props.emailPlaceholder}"
+					label="${props.usernamePlaceholder}"
 					class="username"
 					?hidden="${props.hideUserInput}"
 					autofocus
 					autocapitalize="none"
 					type="${props.userInputType}"
-					pattern="${props.userInputPattern}"
 					part="login__textfield">
 			</mwc-textfield>
 		</div>
@@ -40,7 +40,6 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}
 					type="${props.passwordInputType}"
 					icon="${props.passwordIcon}"
 					part="login__textfield"
-					iconTrailing="visibility"
 			>
 			</mwc-textfield>
 		</div>
@@ -52,13 +51,16 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}
 					part="login__btn">
 				${props.loginButtonText}
 			</mwc-button>
-			<mwc-button
+		${props.showNewUser ? html `
+		<mwc-button
 					raised
 					class="btn-newUser"
 					part="login__btn"
 					?hidden="${props.hideUserInput}">
 				${props.newUserButton}
 			</mwc-button>
+		` : nothing}
+			${props.showCanShowButton ? html `
 			<mwc-button
 					raised
 					class="btn-showPassword"
@@ -66,10 +68,13 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}
 					part="login__btn">
 				${props.showPasswordButtonText}
 			</mwc-button>
+			` : nothing}
 		</div>
-		<a class="forgotPass" href="" part="login__forgotPass">${props.forgotPasswordText}</a>
+		${props.showForgotPassword ? html `
+			<a class="forgotPass" href="" part="login__forgotPass">${props.forgotPasswordText}</a>
+		` : nothing}
 	</form>
-	<footer>Texto Footer</footer>
+	<footer>${props.footerText}</footer>
 </div>
 </div>
 `;

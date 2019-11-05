@@ -13,7 +13,7 @@ export class UxlLogin extends LitElement {
   public userName: string= defaultOptions.userName;
 
   @property()
-  public emailPlaceholder: string = defaultOptions.emailPlaceholder;
+  public usernamePlaceholder: string = defaultOptions.usernamePlaceholder;
 
   @property()
   public passwordPlaceholder: any = defaultOptions.passwordPlaceholder;
@@ -22,15 +22,25 @@ export class UxlLogin extends LitElement {
   public displayName: string = defaultOptions.displayName;
 
   @property()
+  public showNewUser: boolean = false;
+
+  @property()
+  public showCanShowButton: boolean = false
+
+  @property()
+  public showForgotPassword: boolean = false;
+
+  @property()
   public userShowedName: string;
+
+  @property()
+  public footerText: string = defaultOptions.footerText;
 
   @property()
   public canSubmit: boolean;
 
   @property()
   public userInputPattern: string;
-  //email --> [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$
-  // text --> [A-Za-z]
 
   @property()
   public userInputType: any;
@@ -235,7 +245,7 @@ export class UxlLogin extends LitElement {
     this.newUserButton = defaultOptions.newUserButton;
     this.passwordIcon = defaultOptions.passwordIcon;
     this.userIcon = defaultOptions.userIcon;
-    this.emailPlaceholder = defaultOptions.emailPlaceholder;
+    this.usernamePlaceholder = defaultOptions.usernamePlaceholder;
     this.passwordPlaceholder = defaultOptions.passwordPlaceholder;
     this.forgotPasswordText = defaultOptions.forgotPasswordText;
 

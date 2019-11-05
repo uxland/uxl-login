@@ -30,7 +30,7 @@ import "@uxland/uxl-login";
 
   `displayName`: Complete user's name
   
-  `emailPlaceholder`: Email input placeholder text
+  `usernamePlaceholder`: Username input placeholder text
 
   `passwordPlaceholder`: Password input placeholder text 
   
@@ -41,6 +41,14 @@ import "@uxland/uxl-login";
   `userInputType`: The required type for the user input, could be ``text`` | ``email``;
 
   `forgotPasswordText`: Forgot password link text
+
+  `showNewUser`: Defines if it should be shown the new user button. Default `false`
+
+  `showCanShowButton`: Defines if it should be shown the can sow button. Default `false`
+
+  `showForgotPassword`: Defines if it should be whown the forgot password label. Default `false``
+
+  `footerText`: Text of the footer. Type `string`
   
   #Buttons
   
