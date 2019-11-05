@@ -29,10 +29,19 @@
     margin-bottom: 2rem;
 
     .user__image {
-      width: 5rem;
-      height: 5rem;
-      border-radius: 50%;
+      width: var(--uxl-login-image-width, 5rem);
+      height: var(--uxl-login-image-height, 5rem);
+      /*border-radius: 50%;*/
     }
+  }
+
+  mwc-textfield {
+      --mdc-theme-primary: white;
+  --mdc-text-field-outlined-idle-border-color: white;
+  --mdc-text-field-outlined-hover-border-color: white;
+  --mdc-text-field-focused-label-color: white;
+  --mdc-text-field-outlined-disabled-border-color: white;
+    color: white;
   }
 
   .login-form {
@@ -47,7 +56,7 @@
 
     .username, .password {
       padding: 10px;
-      --mdc-theme-primary: #00897B;
+      /*--mdc-theme-primary: var(--uxl-login-input-color, white);*/
     }
 
     mwc-textfield[hidden] {
@@ -62,7 +71,7 @@
       margin-top: 2rem;
 
       mwc-button {
-        --mdc-theme-primary: var(--uxl-login-primary-color, #00897B);
+        --mdc-theme-primary: var(--uxl-login-button-color, #00897B);
         height: 56px;
         margin-bottom: 8px;
       }

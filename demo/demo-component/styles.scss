@@ -5,7 +5,12 @@ $uxl-login-background-color: white;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  --mdc-theme-primary: red;
+  --mdc-notched-outline-border-color: white;
+/*  --mdc-theme-primary: white;
+  --mdc-text-field-outlined-idle-border-color: white;
+  --mdc-text-field-outlined-hover-border-color: white;
+  --mdc-text-field-focused-label-color: white;
+  --mdc-text-field-outlined-disabled-border-color: white;*/
 }
 
 .selected {
@@ -16,9 +21,11 @@ mcw-tab {
   //buscar color
 }
 
+
 uxl-login {
   min-height: 1px;
   height: 100%;
+  background-color: black;
 
   &.login1::part(content) {
     background-color: transparent;
