@@ -5,7 +5,6 @@ import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
 import { defaultOptions } from '../../utilities';
 
 @customElement("uxl-login")
-
 export class UxlLogin extends LitElement {
 
 //----------- PROPERTIES
@@ -97,14 +96,11 @@ export class UxlLogin extends LitElement {
   @query(".password")
   public passwordInput: any;
 
-  @query(".btn-acceder")
+  @query(".btn-submit")
   public submitButton: any;
 
   @query(".btn-showPassword")
   public showPasswordButton: any;
-
-  // @query(".btn-newUser")
-  // public newUserButton: any;
 
   firstUpdated(){
     this.handleShowUsername();
@@ -232,22 +228,6 @@ export class UxlLogin extends LitElement {
     
       this.welcomeMessage += " " + this.userNameInput.value + "!";
     }
-
-  }
-
-  public myDefaultOptions(){
-
-    this.loginButtonText = defaultOptions.submitButtonText;
-    this.submitErrorMessage = defaultOptions.errorMessage;
-    this.welcomeMessage = defaultOptions.welcomeMessage;
-    this.displayName = defaultOptions.displayName;
-    this.showPasswordButtonText = defaultOptions.showPasswordButtonText;
-    this.newUserButton = defaultOptions.newUserButton;
-    this.passwordIcon = defaultOptions.passwordIcon;
-    this.userIcon = defaultOptions.userIcon;
-    this.usernamePlaceholder = defaultOptions.usernamePlaceholder;
-    this.passwordPlaceholder = defaultOptions.passwordPlaceholder;
-    this.forgotPasswordText = defaultOptions.forgotPasswordText;
 
   }
 
