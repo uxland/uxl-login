@@ -41,5 +41,4 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginSty
 	</form>
 	<footer part="footer">${props.footerText}</footer>
 </div>
-</div>
 `;
