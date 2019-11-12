@@ -36,6 +36,6 @@ uxl-login {
 
   &.login2::part(login__textfield) {
     --mdc-theme-primary: var(--uxl-login-primary-color, orange);
-
+    --paper-input-container-color: red;
   }
 }

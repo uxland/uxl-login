@@ -4,8 +4,11 @@ import "@material/mwc-tab";
 import "@material/mwc-tab-bar";
 import { DemoComponent } from './demo-component';
 import "@uxland/uxl-content-switcher";
+import {stylesNative} from "./styles-native";
 
-export const template = (props: DemoComponent) => html`<mwc-tab-bar>
+export const template = (props: DemoComponent) => html`
+${stylesNative}
+<mwc-tab-bar>
 	<mwc-tab class="tabOne" label="Con info usuario"></mwc-tab>
 	<mwc-tab class="tabTwo" label="Sin info usuario"></mwc-tab>
 	<mwc-tab class="tabThree" label="Login 3"></mwc-tab>
