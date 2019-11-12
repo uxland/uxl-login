@@ -106,7 +106,7 @@ export class UxlLogin extends LitElement {
     this.handleShowUsername();
   }
 
-  @listen("click",".btn-acceder")
+  @listen("click",".btn-submit")
   onClickEnter(){
 
     if(this.canSubmit){
