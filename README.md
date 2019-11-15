@@ -27,17 +27,17 @@ import "@uxland/uxl-login";
   
   | Property Name | Description | Default value |
   | --------------| ------------|---------------|
-  | `userName` | Username | `null` |
+  | `userName` | User name | `null` |
   | `usernamePlaceholder`| Username placeholder | `Usuario` |
   | `passwordPlaceholder` | Password placeholder | `Contraseña`|
   | `footerText` | Footer text | `Texto footer` |
   | `isFooterVisible` | If `true` shows footer text | `true` |
-  | `mainImage` | Main image | `null` |
+  | `mainImage` | Main image that appears at the top of the login | `null` |
   | `submitButtonText` | Defines the submit button text | `Enviar` |
-  | `errorMessage` | Shows error message | `null` |
-  | `welcomeMessage` | Welcome message | `Bienvenido` |
-  | `displayName` | Display name | `null` |
-  | `userImage` |  user image |`null` |
+  | `errorMessage` | Shows error message when the user or password are not valid | `null` |
+  | `welcomeMessage` | Welcome message, appears when you have userName or DisplayName, displays `welcomeMessage`+`UserName`  or  `displayName` | `Bienvenido` |
+  | `displayName` | The user's name showed at the Login if exists | `null` |
+  | `userImage` |  User image |`null` |
   
 ### Styling
 
@@ -58,12 +58,21 @@ The following styleable part's of the element `confirm-component` are available 
 
 | Shadow part name                       | Description                             |
 |------------------|------------------|
-| `login__container` | Main container | 
-| `main__image-container` | main image container |
-| `main__image` | main image |
-| `user__info ` | user info | 
-|`user__info-image `| user info image | 
-
+| `login__container` | Main container: contains all the login elements| 
+| `main__image-container` | Contains the main image |
+| `main__image` | Main image: Image centered on the top of the login |
+| `user__info ` | User info: Welcome message, image and displayName | 
+| `user__info-image `| User image | 
+| `login__form `| Login form: contains the inputs and the submit button | 
+| `user__info-welcome-message `| Welcome message: appears when there are a userName or displayName |
+| `username-container `| Container with the username input|
+| `username-input `| Username Input |
+| `password-container `| Container with the password input|
+| `password-input`| Password input |
+| `error__message `| Error message in case the submit info is not valid |
+| `submit__container `| Container with the submit button |
+| `btn-submit`| Submit button: enabled only when userInput and passwordInput are completed |
+| `footer`| Footer text | 
 
 
 
