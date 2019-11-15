@@ -7,38 +7,38 @@ import { nothing } from 'lit-html';
 import {uxlLoginStylesNative} from "./uxl-login-styles-native";
 
 export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginStylesNative}
-<div class="content" part="content">
-	<div class="login" part="login">
-		<img class="user__image" src="${props.userImgSrc}" part="login__userImage">
-		<div class="submit-msg" part="login__submitMsg"
-			 ?hidden="${!props.hideUserInput}">
-			${props.welcomeMessage}
+<div class="login__container" part="login__container">
+	${ props.mainImage ? html `
+		<div class="main__image-container">
+			<img src="${props.mainImage}" class="main__image" part="main__image">
 		</div>
-	</div>
-	<form class="login-form">
-		<div class="inputs__username" part="login__inputUsername">
-			<paper-input class="username" label=${props.usernamePlaceholder} always-float-label part="login__textfield"></paper-input>
-		</div>
-		<div class="mdc-text-field--with-leading-icon" part="login__inputPassword">
-			<paper-input class="password" type="password" label=${props.passwordPlaceholder} always-float-label part="login__textfield">
-				<paper-icon-button slot="suffix" icon="eye"></paper-icon-button>
-			</paper-input>
-
-		</div>
-		<div class="container">
-			<paper-button class="btn-submit" .disabled="${!props.canSubmit}" part="login__btn">${props.loginButtonText}</paper-button>
-		${props.showNewUser ? html `
-			<paper-button class="btn-newUser" .disabled="${!props.canSubmit}" part="login__btn">${props.hideUserInput}</paper-button>
-		` : nothing}
-			${props.showCanShowButton ? html `
-				<paper-button class="btn-showPassword" .disabled="${!props.canShow}" part="login__btn">${props.showPasswordButtonText}</paper-button>
-
+	` : nothing}
+	${props.displayName || props.userImgSrc ? html `
+		<div class="user__info" part="user__info">
+			${props.userImgSrc ?
+				html `<img class="user__info-image" src="${props.userImgSrc}" part="user__info-image">` : 
+			nothing}
+			${props.displayName ? html `
+				<div class="user__info-welcome-message" part="user__info-welcome-message">${props.welcomeMessage}</div>
 			` : nothing}
 		</div>
-		${props.showForgotPassword ? html `
-			<a class="forgotPass" href="" part="login__forgotPass">${props.forgotPasswordText}</a>
+	` : nothing}
+	<form class="login__form" part="login__form">
+		<div class="username-container" part="username-container">
+			<paper-input class="username-input" label=${props.usernamePlaceholder} always-float-label part="username-input"></paper-input>
+		</div>
+		<div class="password-container" part="password-container">
+			<paper-input class="password-input" type="password" label=${props.passwordPlaceholder} always-float-label part="password-input"></paper-input>
+		</div>
+		${props.errorMessage ? html `
+			<div class="error__message" part="error__message">${props.errorMessage}</div>
 		` : nothing}
+		<div class="submit__container" part="submit__container">
+			<paper-button class="btn-submit" .disabled="${!props.canSubmit}" part="btn-submit">${props.submitButtonText}</paper-button>
+		</div>
 	</form>
-	<footer part="footer">${props.footerText}</footer>
+	${props.isFooterVisible ? html `
+		<footer class="footer" part="footer">${props.footerText}</footer>
+	` : nothing}
 </div>
 `;

@@ -7,7 +7,6 @@ import { defaultOptions } from '../../utilities';
 @customElement("uxl-login")
 export class UxlLogin extends LitElement {
 
-//----------- PROPERTIES
   @property()
   public userName: string= defaultOptions.userName;
 
@@ -18,100 +17,45 @@ export class UxlLogin extends LitElement {
   public passwordPlaceholder: any = defaultOptions.passwordPlaceholder;
 
   @property()
-  public displayName: string = defaultOptions.displayName;
-
-  @property()
-  public showNewUser: boolean = false;
-
-  @property()
-  public showCanShowButton: boolean = false
-
-  @property()
-  public showForgotPassword: boolean = false;
-
-  @property()
-  public userShowedName: string;
-
-  @property()
   public footerText: string = defaultOptions.footerText;
+
+  @property()
+  public isFooterVisible: boolean = true;
+
+  @property()
+  public mainImage: string;
 
   @property()
   public canSubmit: boolean;
 
   @property()
-  public userInputPattern: string;
+  public submitButtonText: string = defaultOptions.submitButtonText
 
   @property()
-  public userInputType: any;
-  //email
-  //text
-
-  @property()
-  public canShow: boolean = false;
-
-  @property()
-  public passwordInputType: any = "password";
-
-  @property()
-  public loginButtonText: string = defaultOptions.submitButtonText;
-
-  @property()
-  public showPasswordButtonText: string = defaultOptions.showPasswordButtonText;
+  public errorMessage: string;
 
   @property()
   public welcomeMessage: string = defaultOptions.welcomeMessage;
 
   @property()
-  public submitErrorMessage: string = defaultOptions.errorMessage;
-
-  @property()
-  public newUserButton: string = defaultOptions.newUserButton;
-
-  @property()
-  public passwordIcon: string="";
-
-  @property()
-  public userIcon: string="";
-
-  @property()
-  public hideUserInput: boolean=false;
-
-  @property()
-  public showWelcomeMessage: boolean=false;
-
-  @property()
-  public forgotPasswordText:string = defaultOptions.forgotPasswordText;
-
-  @property()
-  public forgotPasswordHref:string;
+  public displayName: string;
 
   @property()
   public userImgSrc:string;
 
-  //----------- QUERIES
-
-  @query(".username")
+  @query(".username-input")
   public userNameInput: any;
 
-  @query(".password")
+  @query(".password-input")
   public passwordInput: any;
 
   @query(".btn-submit")
   public submitButton: any;
 
-  @query(".btn-showPassword")
-  public showPasswordButton: any;
-
-  firstUpdated(){
-    this.handleShowUsername();
-  }
-
   @listen("click",".btn-submit")
   onClickEnter(){
-
     if(this.canSubmit){
-
-        let userInfo = new CustomEvent('my-event', {
+        let userInfo = new CustomEvent('submit', {
           detail: {
             user: this.userNameInput.value,
             password: this.passwordInput.value,
@@ -120,115 +64,28 @@ export class UxlLogin extends LitElement {
           }
         });
         this.dispatchEvent(userInfo);
-      
-    }else{
-    
-     this.welcomeMessage = this.submitErrorMessage;
-
     }
   }
 
-  @listen("click",".btn-newUser")
-  onClickNewUser(){
-   //new user
+  @listen("keyup", ".password-input")
+  public onKeyUpPass(e){
+    this.keyUpEnter(e)
   }
 
-  @listen("click",".btn-showPassword")
-  onClickPass(){
-    this.changePasswordType();
+  @listen("keyup",".username-input")
+  public onKeyUpUser(e){
+    this.keyUpEnter(e)
   }
 
-  @listen("keyup", ".password")
-  public onKeyUpPass(){
+  keyUpEnter(e){
     this.userCanSubmit();
-    this.showPassword();
-  }
-
-  @listen("keyup",".username")
-  public onKeyUpUser(){
-    this.userCanSubmit();
+    if(e && e.key == "Enter"){
+      this.onClickEnter();
+    }
   }
 
   public userCanSubmit(){
-
-    this.validPassword();
-    this.validUsername();
-  
-  }
-
-  public showPassword(){
-    this.canShow = this.passwordInput
-                   && isNotNullNeitherEmpty(this.passwordInput.value);
-  }
-
-  public validUsername(){
-
-    if(this.displayName || this.userName){
-      this.canSubmit = this.passwordInput
-                      && isNotNullNeitherEmpty(this.passwordInput.value);
-  }
-}
-
-  public validPassword(){
-      
-      this.canSubmit = this.userNameInput
-                      && isNotNullNeitherEmpty(this.userNameInput.value)
-                      && this.passwordInput
-                      && isNotNullNeitherEmpty(this.passwordInput.value);
-  }
-
-  public changePasswordType(){
- 
-    if(this.passwordInputType === "password"){
-      this.passwordInputType = "text";
-      this.showPasswordButtonText = "Ocultar";
-
-    }else{
-      this.passwordInputType = "password";
-      this.showPasswordButtonText = "Ver";
-    }
-  }
-
-  public handleShowUsername(){
-
-    this.userShowedName = this.displayName ? this.displayName : this.userName;
-
-    if(this.displayName || this.userName){
-      this.hideUserInput = true;
-      this.showWelcomeMessage = true;
-
-    }else{
-
-      this.hideUserInput = false;
-    }
-
-    this.defaultUserImage();
-    this.showDisplayNameOrUsername();
-   
-}
-
-  public defaultUserImage(){
-
-    if(!this.userImgSrc){
-      this.userImgSrc ="/src/components/uxl-login/icons/user.svg";
-    }
-  }
-
-  public showDisplayNameOrUsername(){
-
-    if(this.displayName){
-      
-      this.welcomeMessage += " " + this.displayName + "!";
-      
-    }else if(this.userName){
-
-      this.welcomeMessage += " " + this.userName + "!";
-
-    }else{
-    
-      this.welcomeMessage += " " + this.userNameInput.value + "!";
-    }
-
+    this.canSubmit = this.userNameInput && this.userNameInput.value && this.passwordInput && this.passwordInput.value;
   }
 
   static get styles() {
@@ -236,14 +93,6 @@ export class UxlLogin extends LitElement {
   }
 
   public render() {
- 
-    return html`
-    
-      ${template(this)}
-      
-    `;
+    return html`${template(this)}`;
   }
-  
 }
-
-
