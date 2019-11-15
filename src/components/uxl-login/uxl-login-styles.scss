@@ -23,6 +23,7 @@
   @include layout-justified;
   @include layout-center;
   padding: var(--uxl-login-content-padding, 0 30%);
+
   .user__info {
     @include layout-vertical;
     @include layout-start-justified;

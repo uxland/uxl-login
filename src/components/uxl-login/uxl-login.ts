@@ -41,7 +41,7 @@ export class UxlLogin extends LitElement {
   public displayName: string;
 
   @property()
-  public userImgSrc:string;
+  public userImage:string;
 
   @query(".username-input")
   public userNameInput: any;
