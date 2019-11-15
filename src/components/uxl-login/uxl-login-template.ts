@@ -9,7 +9,7 @@ import {uxlLoginStylesNative} from "./uxl-login-styles-native";
 export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginStylesNative}
 <div class="login__container" part="login__container">
 	${ props.mainImage ? html `
-		<div class="main__image-container">
+		<div class="main__image-container" part="main__image-container">
 			<img src="${props.mainImage}" class="main__image" part="main__image">
 		</div>
 	` : nothing}
@@ -19,7 +19,7 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginSty
 				html `<img class="user__info-image" src="${props.userImgSrc}" part="user__info-image">` : 
 			nothing}
 			${props.displayName ? html `
-				<div class="user__info-welcome-message" part="user__info-welcome-message">${props.welcomeMessage}</div>
+				<div class="user__info-welcome-message" part="user__info-welcome-message">${props.welcomeMessage} ${props.displayName}</div>
 			` : nothing}
 		</div>
 	` : nothing}

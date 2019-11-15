@@ -20,7 +20,7 @@ export const defaultOptions : UxlLoginOptions = {
     passwordPlaceholder:'Contraseña',
     submitButtonText:'Entrar',
     footerText: "Texto footer",
-    welcomeMessage: 'Bienvenid@',
+    welcomeMessage: 'Bienvenido',
     errorMessage: 'Error',
     displayName:'Usuario',
     userImgSrc:"/src/components/uxl-login/icons/user.svg",

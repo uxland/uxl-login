@@ -13,8 +13,6 @@
 }
 
 .main__image-container{
-  @include  layout;
-  flex: 1;
 }
 
 .login__container {
@@ -25,13 +23,12 @@
   @include layout-justified;
   @include layout-center;
   padding: var(--uxl-login-content-padding, 0 30%);
-
   .user__info {
     @include layout-vertical;
     @include layout-start-justified;
     @include layout-center;
     padding: 0 10px;
-    margin-bottom: 2rem;
+    margin: 16px;
 
     .user__info-image {
       width: var(--uxl-login-image-width, 5rem);
@@ -39,7 +36,7 @@
       /*border-radius: 50%;*/
     }
     .user__info-welcome-message{
-
+        margin-top: 4px;
     }
   }
 
@@ -56,8 +53,12 @@
       /*--mdc-theme-primary: var(--uxl-login-input-color, white);*/
     }
 
+
+
     .error__message{
+      @include  layout;
       color: red;
+      padding: 8px 8px 16px 8px;
     }
 
     .btn-submit{
