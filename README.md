@@ -28,8 +28,8 @@ import "@uxland/uxl-login";
   | Property Name | Description | Default value |
   | --------------| ------------|---------------|
   | `userName` | User name | `null` |
-  | `usernamePlaceholder`| Username placeholder | `Usuario` |
-  | `passwordPlaceholder` | Password placeholder | `Contraseña`|
+  | `usernamePlaceholder`| Username input placeholder | `Usuario` |
+  | `passwordPlaceholder` | Password input placeholder | `Contraseña`|
   | `footerText` | Footer text | `Texto footer` |
   | `isFooterVisible` | If `true` shows footer text | `true` |
   | `mainImage` | Main image that appears at the top of the login | `null` |
