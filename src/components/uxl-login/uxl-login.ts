@@ -64,6 +64,7 @@ export class UxlLogin extends LitElement {
           }
         });
         this.dispatchEvent(userInfo);
+        this.passwordInput.value = null;
     }
   }
 
