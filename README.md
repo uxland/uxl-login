@@ -77,3 +77,7 @@ The following styleable part's of the element `confirm-component` are available 
 
 
 ### Events
+
+| Event name | Description |
+|------------|-------------|
+| `submit` | Fired when submit button was clicked and username & password has content |
