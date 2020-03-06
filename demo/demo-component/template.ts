@@ -16,15 +16,17 @@ ${stylesNative}
 <uxl-content-switcher attrForSelected="name" selected="${props.selected}">
 
 	<div name="tab1">
-		<uxl-login 
-		    class=login1 
+		<uxl-login
+		    class=login1
 		    mainImage="https://www.uxland.es/wp-content/uploads/2018/02/uxland_logo_2018-web_cropped-hd.png"
 		    footerText="® Todos los derechos reservados"
+		    .isTitleVisible="${true}"
+		    titleText="Título prueba de la App"
 		    >
         </uxl-login>
 	</div>
 	<div name="tab2">
-		<uxl-login 
+		<uxl-login
 		    class="login2"
 			mainImage="https://www.uxland.es/wp-content/uploads/2018/02/uxland_logo_2018-web_cropped-hd.png"
 		    footerText="® Todos los derechos reservados"
@@ -33,7 +35,7 @@ ${stylesNative}
         </uxl-login>
 	</div>
     <div name="tab3">
-    <uxl-login 
+    <uxl-login
            class=login3
            displayName="Ruperta"
            mainImage="https://www.uxland.es/wp-content/uploads/2018/02/uxland_logo_2018-web_cropped-hd.png"

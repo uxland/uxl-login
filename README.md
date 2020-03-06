@@ -30,8 +30,10 @@ import "@uxland/uxl-login";
   | `userName` | User name | `null` |
   | `usernamePlaceholder`| Username input placeholder | `Usuario` |
   | `passwordPlaceholder` | Password input placeholder | `Contraseña`|
-  | `footerText` | Footer text | `Texto footer` |
+  | `isTitleVisible` | If `true` shows footer text | `false` |
+  | `titleText` | Title text | `Titulo App` |
   | `isFooterVisible` | If `true` shows footer text | `true` |
+  | `footerText` | Footer text | `Texto footer` |
   | `mainImage` | Main image that appears at the top of the login | `null` |
   | `submitButtonText` | Defines the submit button text | `Enviar` |
   | `errorMessage` | Shows error message when the user or password are not valid | `null` |
@@ -50,6 +52,8 @@ The following custom properties and mixins are available for styling:
 | `--uxl-login-primary-color` | Buttons and textfield color | `#00897B` |
 | `--uxl-login-background-color` | Component background color | `#E0F2F1` |
 | `--uxl-login-content-padding` | Padding content element | `0 30%` |
+| `--uxl-login-title-size` | Title font-size | $uxl-units-size-18 |
+| `--uxl-login-title-padding` | Title Padding | `5vh 0` |
 
 
 ##### Stylable Shadow Parts
@@ -61,6 +65,7 @@ The following styleable part's of the element `confirm-component` are available 
 | `login__container` | Main container: contains all the login elements| 
 | `main__image-container` | Contains the main image |
 | `main__image` | Main image: Image centered on the top of the login |
+| `title`| Title text | 
 | `user__info ` | User info: Welcome message, image and displayName | 
 | `user__info-image `| User image | 
 | `login__form `| Login form: contains the inputs and the submit button | 

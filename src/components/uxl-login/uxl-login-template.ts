@@ -13,10 +13,13 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginSty
 			<img src="${props.mainImage}" class="main__image" part="main__image">
 		</div>
 	` : nothing}
+	${props.isTitleVisible ? html`
+		<div class="title" part="title">${props.titleText}</div>
+	` : nothing}
 	${props.displayName || props.userImage ? html `
 		<div class="user__info" part="user__info">
 			${props.userImage ?
-				html `<img class="user__info-image" src="${props.userImage}" part="user__info-image">` : 
+				html `<img class="user__info-image" src="${props.userImage}" part="user__info-image">` :
 			nothing}
 			${props.displayName ? html `
 				<div class="user__info-welcome-message" part="user__info-welcome-message">${props.welcomeMessage} ${props.displayName}</div>

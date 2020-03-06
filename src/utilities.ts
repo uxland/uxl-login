@@ -10,8 +10,7 @@ export interface UxlLoginOptions{
     usernamePlaceholder:string;
     passwordPlaceholder:any;
     footerText: string;
-   
-
+	titleText: string;
 }
 
 export const defaultOptions : UxlLoginOptions = {
@@ -20,6 +19,7 @@ export const defaultOptions : UxlLoginOptions = {
     passwordPlaceholder:'Contraseña',
     submitButtonText:'Entrar',
     footerText: "Texto footer",
+	titleText: "Titulo App",
     welcomeMessage: 'Bienvenido',
     errorMessage: 'Error',
     displayName:'Usuario',
