@@ -5,13 +5,10 @@ import {listen} from "@uxland/uxl-utilities";
 
 @customElement('demo-component')
 export class DemoComponent extends LitElement {
-	
-	//----------- PROPERTIES
+
 	@property()
 	public selected: string = "tab1";
-	
-	//----------- QUERIES
-	
+
 	@query(".login1")
 	public login1: any;
 	
@@ -20,12 +17,6 @@ export class DemoComponent extends LitElement {
 	
 	@query(".login3")
 	public login3: any;
-	
-	static get styles() {
-		return css`
-      ${unsafeCSS(styles)}
-    `;
-	}
 	
 	@listen("click", ".tabOne")
 	onClickTab1() {
@@ -45,6 +36,11 @@ export class DemoComponent extends LitElement {
 	render() {
 		return html`
       ${template(this)}
+    `;
+	}
+	static get styles() {
+		return css`
+      ${unsafeCSS(styles)}
     `;
 	}
 }

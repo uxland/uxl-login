@@ -1,256 +1,110 @@
-import { css, customElement, html, LitElement, property, query, unsafeCSS } from "lit-element";
+import {css, customElement, html, LitElement, property, query, unsafeCSS} from "lit-element";
 import styles from "./uxl-login-styles.scss";
-import { template } from "./uxl-login-template";
-import { listen, isNotNullNeitherEmpty } from "@uxland/uxl-utilities";
-import { defaultOptions } from '../../utilities';
+import {template} from "./uxl-login-template";
+import {listen} from "@uxland/uxl-utilities";
+import {defaultOptions} from '../../utilities';
 
 @customElement("uxl-login")
 export class UxlLogin extends LitElement {
+    @property()
+    public extraStyles: any;
 
-//----------- PROPERTIES
+    @property()
+    public showAlwaysFloatLabel: boolean = false;
 
-  @property()
-  public extraStyles: any;
+	@property()
+	public userName: string = defaultOptions.userName;
 
-  @property()
-  public showAlwaysFloatLabel: boolean = false;
+	@property()
+	public usernamePlaceholder: string = defaultOptions.usernamePlaceholder;
 
-  @property()
-  public userName: string= defaultOptions.userName;
+	@property()
+	public passwordPlaceholder: any = defaultOptions.passwordPlaceholder;
 
-  @property()
-  public usernamePlaceholder: string = defaultOptions.usernamePlaceholder;
+	@property()
+	public titleText: string = defaultOptions.titleText;
 
-  @property()
-  public passwordPlaceholder: any = defaultOptions.passwordPlaceholder;
+	@property()
+	public isTitleVisible: boolean = false;
 
-  @property()
-  public displayName: string = defaultOptions.displayName;
+	@property()
+	public footerText: string = defaultOptions.footerText;
 
-  @property()
-  public showNewUser: boolean = false;
+	@property()
+	public isFooterVisible: boolean = true;
 
-  @property()
-  public showCanShowButton: boolean = false
+	@property()
+	public mainImage: string;
 
-  @property()
-  public showForgotPassword: boolean = false;
+	@property()
+	public canSubmit: boolean;
 
-  @property()
-  public userShowedName: string;
+	@property()
+	public submitButtonText: string = defaultOptions.submitButtonText
 
-  @property()
-  public footerText: string = defaultOptions.footerText;
+	@property()
+	public errorMessage: string;
 
-  @property()
-  public canSubmit: boolean;
+	@property()
+	public welcomeMessage: string = defaultOptions.welcomeMessage;
 
-  @property()
-  public userInputPattern: string;
+	@property()
+	public displayName: string;
 
-  @property()
-  public userInputType: any;
-  //email
-  //text
+	@property()
+	public userImage: string;
 
-  @property()
-  public canShow: boolean = false;
+	@query(".username-input")
+	public userNameInput: any;
 
-  @property()
-  public passwordInputType: any = "password";
+	@query(".password-input")
+	public passwordInput: any;
 
-  @property()
-  public loginButtonText: string = defaultOptions.submitButtonText;
+	@query(".btn-submit")
+	public submitButton: any;
 
-  @property()
-  public showPasswordButtonText: string = defaultOptions.showPasswordButtonText;
+	static get styles() {
+		return css`${unsafeCSS(styles)}`;
+	}
 
-  @property()
-  public welcomeMessage: string = defaultOptions.welcomeMessage;
+	@listen("click", ".btn-submit")
+	onClickEnter() {
+		if (this.canSubmit) {
+			let userInfo = new CustomEvent('submit', {
+				detail: {
+					user: this.userNameInput.value,
+					password: this.passwordInput.value,
+					username: this.userName,
+					displayName: this.displayName
+				}
+			});
+			this.dispatchEvent(userInfo);
+			this.passwordInput.value = null;
+		}
+	}
 
-  @property()
-  public submitErrorMessage: string = defaultOptions.errorMessage;
+	@listen("keyup", ".password-input")
+	public onKeyUpPass(e) {
+		this.keyUpEnter(e)
+	}
 
-  @property()
-  public newUserButton: string = defaultOptions.newUserButton;
+	@listen("keyup", ".username-input")
+	public onKeyUpUser(e) {
+		this.keyUpEnter(e)
+	}
 
-  @property()
-  public passwordIcon: string="";
+	keyUpEnter(e) {
+		this.userCanSubmit();
+		if (e && e.key == "Enter") {
+			this.onClickEnter();
+		}
+	}
 
-  @property()
-  public userIcon: string="";
+	public userCanSubmit() {
+		this.canSubmit = this.userNameInput && this.userNameInput.value && this.passwordInput && this.passwordInput.value;
+	}
 
-  @property()
-  public hideUserInput: boolean=false;
-
-  @property()
-  public showWelcomeMessage: boolean=false;
-
-  @property()
-  public forgotPasswordText:string = defaultOptions.forgotPasswordText;
-
-  @property()
-  public forgotPasswordHref:string;
-
-  @property()
-  public userImgSrc:string;
-
-  //----------- QUERIES
-
-  @query(".username")
-  public userNameInput: any;
-
-  @query(".password")
-  public passwordInput: any;
-
-  @query(".btn-submit")
-  public submitButton: any;
-
-  @query(".btn-showPassword")
-  public showPasswordButton: any;
-
-  firstUpdated(){
-    this.handleShowUsername();
-  }
-
-  @listen("click",".btn-submit")
-  onClickEnter(){
-
-    if(this.canSubmit){
-
-        let userInfo = new CustomEvent('my-event', {
-          detail: {
-            user: this.userNameInput.value,
-            password: this.passwordInput.value,
-            username: this.userName,
-            displayName: this.displayName
-          }
-        });
-        this.dispatchEvent(userInfo);
-      
-    }else{
-    
-     this.welcomeMessage = this.submitErrorMessage;
-
-    }
-  }
-
-  @listen("click",".btn-newUser")
-  onClickNewUser(){
-   //new user
-  }
-
-  @listen("click",".btn-showPassword")
-  onClickPass(){
-    this.changePasswordType();
-  }
-
-  @listen("keyup", ".password")
-  public onKeyUpPass(){
-    this.userCanSubmit();
-    this.showPassword();
-  }
-
-  @listen("keyup",".username")
-  public onKeyUpUser(){
-    this.userCanSubmit();
-  }
-
-  public userCanSubmit(){
-
-    this.validPassword();
-    this.validUsername();
-  
-  }
-
-  public showPassword(){
-    this.canShow = this.passwordInput
-                   && isNotNullNeitherEmpty(this.passwordInput.value);
-  }
-
-  public validUsername(){
-
-    if(this.displayName || this.userName){
-      this.canSubmit = this.passwordInput
-                      && isNotNullNeitherEmpty(this.passwordInput.value);
-  }
+	public render() {
+		return html`${template(this)}`;
+	}
 }
-
-  public validPassword(){
-      
-      this.canSubmit = this.userNameInput
-                      && isNotNullNeitherEmpty(this.userNameInput.value)
-                      && this.passwordInput
-                      && isNotNullNeitherEmpty(this.passwordInput.value);
-  }
-
-  public changePasswordType(){
- 
-    if(this.passwordInputType === "password"){
-      this.passwordInputType = "text";
-      this.showPasswordButtonText = "Ocultar";
-
-    }else{
-      this.passwordInputType = "password";
-      this.showPasswordButtonText = "Ver";
-    }
-  }
-
-  public handleShowUsername(){
-
-    this.userShowedName = this.displayName ? this.displayName : this.userName;
-
-    if(this.displayName || this.userName){
-      this.hideUserInput = true;
-      this.showWelcomeMessage = true;
-
-    }else{
-
-      this.hideUserInput = false;
-    }
-
-    this.defaultUserImage();
-    this.showDisplayNameOrUsername();
-   
-}
-
-  public defaultUserImage(){
-
-    if(!this.userImgSrc){
-      this.userImgSrc ="/src/components/uxl-login/icons/user.svg";
-    }
-  }
-
-  public showDisplayNameOrUsername(){
-
-    if(this.displayName){
-      
-      this.welcomeMessage += " " + this.displayName + "!";
-      
-    }else if(this.userName){
-
-      this.welcomeMessage += " " + this.userName + "!";
-
-    }else{
-    
-      this.welcomeMessage += " " + this.userNameInput.value + "!";
-    }
-
-  }
-
-  static get styles() {
-    return css`${unsafeCSS(styles)}`;
-  }
-
-  public render() {
- 
-    return html`
-    
-      ${template(this)}
-      
-    `;
-  }
-  
-}
-
-

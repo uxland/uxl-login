@@ -25,64 +25,21 @@ import "@uxland/uxl-login";
 
 ### Properties
   
-  #Texts
-  
-  `userName`: User's name
-
-  `displayName`: Complete user's name
-  
-  `usernamePlaceholder`: Username input placeholder text
-
-  `passwordPlaceholder`: Password input placeholder text 
-  
-  `userShowedName`: The user name you want to show at the login if user exists, could be ``userName`` | ``displayName``
-
-  `userInputPattern`: User Input pattern, could be ``[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`` | ``[A-Za-z]``
-
-  `userInputType`: The required type for the user input, could be ``text`` | ``email``;
-
-  `forgotPasswordText`: Forgot password link text
-
-  `showNewUser`: Defines if it should be shown the new user button. Default `false`
-
-  `showCanShowButton`: Defines if it should be shown the can sow button. Default `false`
-
-  `showForgotPassword`: Defines if it should be whown the forgot password label. Default `false``
-
-  `footerText`: Text of the footer. Type `string`
-
-  `showAlwaysFloatLabel`: Defines if input label will allwais float. Default value `false`
-  
-  #Buttons
-  
-  `submitButtonText`: "Submit" button text
-
-  `showPasswordButtonText`: "Show password" button text
-
-  `newUserButton`: "New User" button text
-
-  #Messages
-  
-  `welcomeMessage`: Welcome text, message + `userShowedName`
-
-  `errorMessage`: Error message if can't login
-
-  #Icons
-  
-  `passwordIcon`: Password icon inside password input
-  
-  `userIcon`: User icon inside user input
-
-  #HREF
-  
-  `forgotPasswordHref` Forgot password HREF
-
-  #Images
-  
-  `userImgSrc`: User's image if has, if not, default image is shown
-
-  
-  
+  | Property Name | Description | Default value |
+  | --------------| ------------|---------------|
+  | `userName` | User name | `null` |
+  | `usernamePlaceholder`| Username input placeholder | `Usuario` |
+  | `passwordPlaceholder` | Password input placeholder | `Contraseña`|
+  | `isTitleVisible` | If `true` shows footer text | `false` |
+  | `titleText` | Title text | `Titulo App` |
+  | `isFooterVisible` | If `true` shows footer text | `true` |
+  | `footerText` | Footer text | `Texto footer` |
+  | `mainImage` | Main image that appears at the top of the login | `null` |
+  | `submitButtonText` | Defines the submit button text | `Enviar` |
+  | `errorMessage` | Shows error message when the user or password are not valid | `null` |
+  | `welcomeMessage` | Welcome message, appears when you have userName or DisplayName, displays `welcomeMessage`+`UserName`  or  `displayName` | `Bienvenido` |
+  | `displayName` | The user's name showed at the Login if exists | `null` |
+  | `userImage` |  User image |`null` |
 
 ### Styling
 
@@ -97,20 +54,37 @@ The following custom properties and mixins are available for styling:
 | `--uxl-login-primary-color` | Buttons and textfield color | `#00897B` |
 | `--uxl-login-background-color` | Component background color | `#E0F2F1` |
 | `--uxl-login-content-padding` | Padding content element | `0 30%` |
+| `--uxl-login-title-size` | Title font-size | $uxl-units-size-18 |
+| `--uxl-login-title-padding` | Title Padding | `5vh 0` |
 
 
 ##### Stylable Shadow Parts
 
 The following styleable part's of the element `confirm-component` are available for styling:
 
-| Shadow tree part                       | Description                             | Style outside of shadow tree             |
-| -------------------------------------- | --------------------------------------- | ---------------------------------------- |
-| `<paper-dialog part="dialog">...`      | The confirm dialog parent element       | `confirm-component::part(dialog) {...}`  |
-| `<div id="header" part="header">...`   | The header of the confirm dialog        | `confirm-component::part(header) {...}`  |
-| `<h2 part="title">...`                 | The title of the confirm dialog         | `confirm-component::part(title) {...}`   |
-| `<div id="content" part="content">...` | The content of the confirm dialog       | `confirm-component::part(content) {...}` |
-| `<div id="actions" part="actions">...` | The action footer of the confirm dialog | `confirm-component::part(actions) {...}` |
+| Shadow part name                       | Description                             |
+|------------------|------------------|
+| `login__container` | Main container: contains all the login elements|
+| `main__image-container` | Contains the main image |
+| `main__image` | Main image: Image centered on the top of the login |
+| `title`| Title text |
+| `user__info ` | User info: Welcome message, image and displayName |
+| `user__info-image `| User image |
+| `login__form `| Login form: contains the inputs and the submit button |
+| `user__info-welcome-message `| Welcome message: appears when there are a userName or displayName |
+| `username-container `| Container with the username input|
+| `username-input `| Username Input |
+| `password-container `| Container with the password input|
+| `password-input`| Password input |
+| `error__message `| Error message in case the submit info is not valid |
+| `submit__container `| Container with the submit button |
+| `btn-submit`| Submit button: enabled only when userInput and passwordInput are completed |
+| `footer`| Footer text |
+
 
 
 ### Events
 
+| Event name | Description |
+|------------|-------------|
+| `submit` | Fired when submit button was clicked and username & password has content |

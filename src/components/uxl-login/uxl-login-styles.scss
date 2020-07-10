@@ -12,7 +12,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.content {
+.main__image-container{
+}
+
+.login__container {
   min-height: 1px;
   height: 100%;
   @include layout-flex;
@@ -21,86 +24,58 @@
   @include layout-center;
   padding: var(--uxl-login-content-padding, 0 30%);
 
-  .login {
+  .title {
+    font-size: var(--uxl-login-title-size, $uxl-units-size-18);
+    padding: var(--uxl-login-title-padding, 5vh 0);
+  }
+
+  .user__info {
     @include layout-vertical;
     @include layout-start-justified;
     @include layout-center;
     padding: 0 10px;
-    margin-bottom: 2rem;
+    margin: 16px;
 
-    .user__image {
+    .user__info-image {
       width: var(--uxl-login-image-width, 5rem);
       height: var(--uxl-login-image-height, 5rem);
       /*border-radius: 50%;*/
     }
+    .user__info-welcome-message{
+        margin-top: 4px;
+    }
   }
 
-  mwc-textfield {
-    --mdc-theme-primary: white;
-    --mdc-text-field-outlined-idle-border-color: white;
-    --mdc-text-field-outlined-hover-border-color: white;
-    --mdc-text-field-focused-label-color: white;
-    --mdc-text-field-outlined-disabled-border-color: white;
-    color: white;
-  }
-
-  .login-form {
+  .login__form {
+    @include layout-flex;
     @include layout-vertical;
     @include layout-start-justified;
     @include layout-self-stretch;
+    @include layout-center-justified;
 
-    .inputs__username, .mdc-text-field--with-leading-icon {
-      @include layout-vertical;
-      @include layout-self-stretch;
-    }
 
-    .username, .password {
+    .username-container, .password-container {
       padding: 10px;
       /*--mdc-theme-primary: var(--uxl-login-input-color, white);*/
     }
 
-    mwc-textfield[hidden] {
-      display: none;
+
+
+    .error__message{
+      @include  layout;
+      color: red;
+      padding: 8px 8px 16px 8px;
     }
 
-    .container {
-      @include layout-flex;
-      @include layout-vertical;
-      @include layout-self-stretch;
-      padding: 0 10px;
-      margin-top: 2rem;
-
-      mwc-button {
-        --mdc-theme-primary: var(--uxl-login-button-color, #00897B);
-        height: 56px;
-        margin-bottom: 8px;
-      }
-
-      button {
-        height: 56px !important;
-      }
-
-      mwc-button[hidden] {
-        display: none;
-      }
+    .btn-submit{
+      @include  layout;
+      flex: 1;
     }
 
-    .forgotPass {
-      text-decoration: none;
-      color: #616161;
+    .btn-submit[disabled]{
+      opacity: 0.5;
     }
   }
-
-  .submit-msg {
-    @include fadein();
-    padding-top: 20px;
-    color: #616161;
-  }
-
-  .submit-msg[hidden] {
-    display: none;
-  }
-
 }
 
 
