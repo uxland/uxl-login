@@ -7,6 +7,7 @@ import { nothing } from 'lit-html';
 import {uxlLoginStylesNative} from "./uxl-login-styles-native";
 
 export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginStylesNative}
+<custom-style><style>${props.extraStyles}</style></custom-style>
 <div class="login__container" part="login__container">
 	${ props.mainImage ? html `
 		<div class="main__image-container" part="main__image-container">
@@ -28,10 +29,10 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginSty
 	` : nothing}
 	<form class="login__form" part="login__form">
 		<div class="username-container" part="username-container">
-			<paper-input class="username-input" label=${props.usernamePlaceholder} always-float-label part="username-input"></paper-input>
+			<paper-input class="username-input" label=${props.usernamePlaceholder} ?always-float-label="${props.showAlwaysFloatLabel}"></paper-input>
 		</div>
 		<div class="password-container" part="password-container">
-			<paper-input class="password-input" type="password" label=${props.passwordPlaceholder} always-float-label part="password-input"></paper-input>
+			<paper-input class="password-input" type="password" label=${props.passwordPlaceholder} ?always-float-label="${props.showAlwaysFloatLabel}"></paper-input>
 		</div>
 		${props.errorMessage ? html `
 			<div class="error__message" part="error__message">${props.errorMessage}</div>

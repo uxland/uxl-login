@@ -7,7 +7,7 @@ It is a login component with user and password.
 ##### How Install
 
 ```
-npm i @uxland/uxl-login
+npm i --save @uxland/uxl-login
 ```
 
 ##### How to use?
@@ -40,8 +40,10 @@ import "@uxland/uxl-login";
   | `welcomeMessage` | Welcome message, appears when you have userName or DisplayName, displays `welcomeMessage`+`UserName`  or  `displayName` | `Bienvenido` |
   | `displayName` | The user's name showed at the Login if exists | `null` |
   | `userImage` |  User image |`null` |
-  
+
 ### Styling
+
+ `extraStyles`: This property allow customize styles that will inject like custom styles in component. Allow styling for legacy browsers and this property add compatibility to Safari for example to avoid css custom parts.
 
 ##### Mixins
 
@@ -62,13 +64,13 @@ The following styleable part's of the element `confirm-component` are available 
 
 | Shadow part name                       | Description                             |
 |------------------|------------------|
-| `login__container` | Main container: contains all the login elements| 
+| `login__container` | Main container: contains all the login elements|
 | `main__image-container` | Contains the main image |
 | `main__image` | Main image: Image centered on the top of the login |
-| `title`| Title text | 
-| `user__info ` | User info: Welcome message, image and displayName | 
-| `user__info-image `| User image | 
-| `login__form `| Login form: contains the inputs and the submit button | 
+| `title`| Title text |
+| `user__info ` | User info: Welcome message, image and displayName |
+| `user__info-image `| User image |
+| `login__form `| Login form: contains the inputs and the submit button |
 | `user__info-welcome-message `| Welcome message: appears when there are a userName or displayName |
 | `username-container `| Container with the username input|
 | `username-input `| Username Input |
@@ -77,7 +79,7 @@ The following styleable part's of the element `confirm-component` are available 
 | `error__message `| Error message in case the submit info is not valid |
 | `submit__container `| Container with the submit button |
 | `btn-submit`| Submit button: enabled only when userInput and passwordInput are completed |
-| `footer`| Footer text | 
+| `footer`| Footer text |
 
 
 

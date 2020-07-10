@@ -6,62 +6,67 @@ import {defaultOptions} from '../../utilities';
 
 @customElement("uxl-login")
 export class UxlLogin extends LitElement {
-	
+    @property()
+    public extraStyles: any;
+
+    @property()
+    public showAlwaysFloatLabel: boolean = false;
+
 	@property()
 	public userName: string = defaultOptions.userName;
-	
+
 	@property()
 	public usernamePlaceholder: string = defaultOptions.usernamePlaceholder;
-	
+
 	@property()
 	public passwordPlaceholder: any = defaultOptions.passwordPlaceholder;
-	
+
 	@property()
 	public titleText: string = defaultOptions.titleText;
-	
+
 	@property()
 	public isTitleVisible: boolean = false;
-	
+
 	@property()
 	public footerText: string = defaultOptions.footerText;
-	
+
 	@property()
 	public isFooterVisible: boolean = true;
-	
+
 	@property()
 	public mainImage: string;
-	
+
 	@property()
 	public canSubmit: boolean;
-	
+
 	@property()
 	public submitButtonText: string = defaultOptions.submitButtonText
-	
+
 	@property()
 	public errorMessage: string;
-	
+
 	@property()
 	public welcomeMessage: string = defaultOptions.welcomeMessage;
-	
+
 	@property()
 	public displayName: string;
-	
+
 	@property()
 	public userImage: string;
-	
+
 	@query(".username-input")
 	public userNameInput: any;
-	
+
 	@query(".password-input")
 	public passwordInput: any;
-	
+
 	@query(".btn-submit")
 	public submitButton: any;
-	
+
 	static get styles() {
 		return css`${unsafeCSS(styles)}`;
 	}
-	
+
 	@listen("click", ".btn-submit")
 	onClickEnter() {
 		if (this.canSubmit) {
@@ -77,28 +82,28 @@ export class UxlLogin extends LitElement {
 			this.passwordInput.value = null;
 		}
 	}
-	
+
 	@listen("keyup", ".password-input")
 	public onKeyUpPass(e) {
 		this.keyUpEnter(e)
 	}
-	
+
 	@listen("keyup", ".username-input")
 	public onKeyUpUser(e) {
 		this.keyUpEnter(e)
 	}
-	
+
 	keyUpEnter(e) {
 		this.userCanSubmit();
 		if (e && e.key == "Enter") {
 			this.onClickEnter();
 		}
 	}
-	
+
 	public userCanSubmit() {
 		this.canSubmit = this.userNameInput && this.userNameInput.value && this.passwordInput && this.passwordInput.value;
 	}
-	
+
 	public render() {
 		return html`${template(this)}`;
 	}
