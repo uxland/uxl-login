@@ -7,6 +7,7 @@ import { nothing } from 'lit-html';
 import {uxlLoginStylesNative} from "./uxl-login-styles-native";
 
 export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginStylesNative}
+<custom-style><style>${props.extraStyles}</style></custom-style>
 <div class="content" part="content">
 	<div class="login" part="login">
 		<img class="user__image" src="${props.userImgSrc}" part="login__userImage">
@@ -17,10 +18,10 @@ export const template = (props: UxlLogin) => html`${iconTemplate()}${uxlLoginSty
 	</div>
 	<form class="login-form">
 		<div class="inputs__username" part="login__inputUsername">
-			<paper-input class="username" label=${props.usernamePlaceholder} always-float-label part="login__textfield"></paper-input>
+			<paper-input class="username" label=${props.usernamePlaceholder} ?always-float-label="${props.showAlwaysFloatLabel}" part="login__textfield"></paper-input>
 		</div>
 		<div class="mdc-text-field--with-leading-icon" part="login__inputPassword">
-			<paper-input class="password" type="password" label=${props.passwordPlaceholder} always-float-label part="login__textfield">
+			<paper-input class="password" type="password" label=${props.passwordPlaceholder} ?always-float-label="${props.showAlwaysFloatLabel}" part="login__textfield">
 				<paper-icon-button slot="suffix" icon="eye"></paper-icon-button>
 			</paper-input>
 

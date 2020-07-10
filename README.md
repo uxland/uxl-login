@@ -50,6 +50,8 @@ import "@uxland/uxl-login";
   `showForgotPassword`: Defines if it should be whown the forgot password label. Default `false``
 
   `footerText`: Text of the footer. Type `string`
+
+  `showAlwaysFloatLabel`: Defines if input label will allwais float. Default value `false`
   
   #Buttons
   
@@ -83,6 +85,8 @@ import "@uxland/uxl-login";
   
 
 ### Styling
+
+ `extraStyles`: This property allow customize styles that will inject like custom styles in component. Allow styling for legacy browsers and this property add compatibility to Safari for example to avoid css custom parts.
 
 ##### Mixins
 

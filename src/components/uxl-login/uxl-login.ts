@@ -8,6 +8,13 @@ import { defaultOptions } from '../../utilities';
 export class UxlLogin extends LitElement {
 
 //----------- PROPERTIES
+
+  @property()
+  public extraStyles: any;
+
+  @property()
+  public showAlwaysFloatLabel: boolean = false;
+
   @property()
   public userName: string= defaultOptions.userName;
 
