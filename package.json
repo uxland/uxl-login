@@ -15,7 +15,6 @@
     "cjs": true
   },
   "dependencies": { 
-    "@material/mwc-textfield": "^0.9.1",
     "@polymer/paper-button": "^3.0.1",
     "@polymer/paper-icon-button": "^3.0.2",
     "@polymer/paper-input": "^3.0.2",
